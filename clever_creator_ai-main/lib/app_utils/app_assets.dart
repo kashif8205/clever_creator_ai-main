@@ -1,0 +1,47 @@
+class AppAssets {
+  static const String aiLogo = 'assets/images/ai.png';
+  static const String aestronaut = 'assets/images/aestronaut.png';
+  static const String spoken = 'assets/images/spoken.png';
+  static const String animation = 'assets/images/animation.png';
+  static const String fwdicon = 'assets/images/fwdicon.svg';
+  static const String bwdicon = 'assets/images/bwdicon.svg';
+  static const String google = 'assets/images/google.svg';
+  static const String apple = 'assets/images/apple.svg';
+  static const String facebook = 'assets/images/facebook.svg';
+  static const String user = 'assets/images/user.svg';
+  static const String eye = 'assets/images/eye.svg';
+  static const String lock = 'assets/images/lock.svg';
+  static const String ellipse = 'assets/images/ellipse.svg';
+  static const String arrow = 'assets/images/arrow.svg';
+  static const String mailbox = 'assets/images/mailbox.svg';
+  static const String share = 'assets/images/Vector.svg';
+  static const String userIcon = 'assets/images/li_user.svg';
+  static const String imagePg = 'assets/images/image_pg.png';
+  static const String contentPg = 'assets/images/content_pg.png';
+  static const String babyImg = 'assets/images/baby.png';
+  static const String downloadIcon = 'assets/images/download_icon.svg';
+  static const String shareIcon = 'assets/images/share_icon.svg';
+  static const String regenerateIcon = 'assets/images/regenerate_icon.svg';
+  static const String editIcon = 'assets/images/edit_icon.svg';
+  static const String likeIcon = 'assets/images/like_icon.svg';
+  static const String uploadIcon = 'assets/images/upload_icon.svg';
+  static const String botIcon = 'assets/images/Bot.png';
+  static const String ieltsIcon = 'assets/images/ielts_icon.png';
+  static const String pythonIcon = 'assets/images/Python.png';
+  static const String resumeIcon = 'assets/images/Resume.png';
+  static const String financeIcon = 'assets/images/Global Finance.png';
+  static const String webIcon = 'assets/images/Website.png';
+  static const String travelIcon = 'assets/images/Travel Diary.png';
+  static const String totorIcon = 'assets/images/Language.png';
+  static const String seoIcon = 'assets/images/seo_icon.png';
+  static const String interDesignIcon= 'assets/images/Interior.png';
+  static const String marketGoalIcon = 'assets/images/marketing.png';
+  static const String startUpIcon = 'assets/images/Rocket.png';
+  static const String cyberSecurityIcon = 'assets/images/Cyber Security.png';
+  static const String careerConsultantIcon = 'assets/images/Consultation.png';
+  static const String accountantIcon = 'assets/images/Accountant.png';
+  static const String financeSpecialistIcon = 'assets/images/Accountant.png';
+  static const String fitnessTrainerIcon = 'assets/images/fitness.png';
+  static const String aiCodeIcon = 'assets/images/AI File.png';
+
+}
