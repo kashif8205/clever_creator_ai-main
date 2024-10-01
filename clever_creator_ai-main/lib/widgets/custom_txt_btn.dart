@@ -1,3 +1,4 @@
+import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -5,7 +6,7 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.text,
-    required this.textStyle,
+  this.textStyle = AppTextStyles.signInTxtStyle,
   });
   final VoidCallback onPressed;
   final String text;

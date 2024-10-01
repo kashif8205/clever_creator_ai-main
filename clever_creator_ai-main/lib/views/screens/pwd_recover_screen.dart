@@ -1,10 +1,12 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
+import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/clever_creator_ai_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
-import 'package:clever_creator_ai/widgets/custom_row_widget.dart';
+import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
+import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -17,15 +19,21 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          leading: CustomIconButton(
+        iconButton: AppAssets.bwdicon,
+        onPressed: () {
+          Navigator.of(context).maybePop();
+        },
+      )),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SvgPicture.asset(AppAssets.bwdicon),
                 const Text(
                   AppStrings.forgetScreenTitle,
                   style: AppTextStyles.screenTitleStyle,
@@ -33,25 +41,42 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-               
-                CustomTextField(
-                  prefixIconConstraints:
-                      const BoxConstraints(minHeight: 15, minWidth: 20),
-                  prefixIcon: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                    child: SvgPicture.asset(AppAssets.mailbox),
-                  ),
+                const CustomTextField(
+                  prefixIcon: AppAssets.mailbox,
                   hintText: AppStrings.enterEmail,
-                  textStyle: AppTextStyles.secondaryTxtStyle,
-                  
                 ),
-               const SizedBox(height: 10,),
-              const  Text(AppStrings.emailBelowTxt, style:AppTextStyles.secondaryTxtStyle),
-             const   SizedBox(height: 70),
-                CustomRowWidget(
-                  onPressed: () {},
-                  btnText: AppStrings.sendCode,
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(AppStrings.emailBelowTxt,
+                    style: AppTextStyles.secondaryTxtStyle),
+                const SizedBox(height: 70),
+               Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomTextButton(
+                        onPressed: () {
+                        },
+                        text: AppStrings.sendCode),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: AppColors.fourthClr,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: CustomIconButton(
+                        iconButton: AppAssets.arrow,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CleverCreatorAiScreen()));
+                        },
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

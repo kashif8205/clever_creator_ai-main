@@ -1,4 +1,4 @@
-import 'package:clever_creator_ai/views/screens/clever_creator_ai_screen.dart';
+import 'package:clever_creator_ai/views/screens/image_prompt_gen_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        
+        title: 'Clever Creater Ai',
+         
         darkTheme: ThemeData.dark(),
         theme: ThemeData(
           fontFamily: 'PlusJakartaSans'
         ),
         debugShowCheckedModeBanner: false,
-        home: const CleverCreatorAiScreen());
+        home: const ImagePromptGenScreen());
   }
 }

@@ -2,7 +2,8 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/models/page_view_model.dart';
+import 'package:clever_creator_ai/widgets/page_view_ui.dart';
+import 'package:clever_creator_ai/views/screens/login_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -38,9 +39,15 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
                 height: 20,
               ),
               CustomElevatedBtn(
+                eltBtnSize: const Size(61, 33),
                 elBtnTxt: AppStrings.skip,
                 elevatedtBtnTxtStyle: AppTextStyles.skipEltBtnStyle,
-                onPress: () => controller.jumpToPage(3),
+                onPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                },
                 backgroundColor: AppColors.thirdClr,
                 foregroundColor: AppColors.elTxtClr,
               ),
@@ -50,37 +57,23 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
                   onPageChanged: (index) {
                     setState(() => isLastPage = index == 3);
                   },
-                  children: [
-                    buildPage(
+                  children: const [
+                    PageViewUi(
                         image: AppAssets.aiLogo,
                         title: AppStrings.onBoardOneTxt),
-                    buildPage(
+                    PageViewUi(
                         image: AppAssets.aestronaut,
                         title: AppStrings.onBoardTwoTxt),
-                    buildPage(
+                    PageViewUi(
                         image: AppAssets.spoken,
                         title: AppStrings.onBoardThreeTxt),
-                    buildPage(
+                    PageViewUi(
                         image: AppAssets.animation,
                         title: AppStrings.onBoardFourTxt),
                   ],
                 ),
               ),
-              Center(
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: 4,
-                  effect: const WormEffect(
-                      spacing: 10,
-                      dotColor: AppColors.thirdClr,
-                      activeDotColor: AppColors.fourthClr,
-                      dotWidth: 5,
-                      dotHeight: 5),
-                  onDotClicked: (index) => controller.animateToPage(index,
-                      duration: const Duration(microseconds: 500),
-                      curve: Curves.easeIn),
-                ),
-              ),
+              buildSmoothPageIndicator(),
               const SizedBox(
                 height: 50,
               ),
@@ -104,4 +97,23 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
       ),
     );
   }
+
+  Center buildSmoothPageIndicator() {
+    return Center(
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: 4,
+                effect: const WormEffect(
+                    spacing: 10,
+                    dotColor: AppColors.thirdClr,
+                    activeDotColor: AppColors.fourthClr,
+                    dotWidth: 5,
+                    dotHeight: 5),
+                onDotClicked: (index) => controller.animateToPage(index,
+                    duration: const Duration(microseconds: 500),
+                    curve: Curves.easeIn),
+              ),
+            );
+  }
+
 }

@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: EdgeInsets.symmetric(horizontal: 50),
               child: Text(
                 textAlign: TextAlign.center,
-                AppStrings.splashtxt,
+                AppStrings.appName,
                 style: AppTextStyles.splashTxtStyle,
               ),
             ),

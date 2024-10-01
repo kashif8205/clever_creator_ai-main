@@ -7,10 +7,12 @@ import 'package:flutter_svg/svg.dart';
 class CustomRowWidget extends StatelessWidget {
   const CustomRowWidget({
     super.key,
-    required this.onPressed, required this.btnText,
+     this.onPressed, required this.btnText, required this.onTap,
   });
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String btnText;
+  final VoidCallback onTap;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +20,18 @@ class CustomRowWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomTextButton(
-            onPressed: onPressed,
+            onPressed: (){},
             text:btnText,
             textStyle: AppTextStyles.signInTxtStyle),
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            SvgPicture.asset(AppAssets.ellipse),
-            SvgPicture.asset(AppAssets.arrow)
-          ],
+        InkWell(
+          onTap: onTap,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SvgPicture.asset(AppAssets.ellipse),
+              SvgPicture.asset(AppAssets.arrow)
+            ],
+          ),
         )
       ],
     );

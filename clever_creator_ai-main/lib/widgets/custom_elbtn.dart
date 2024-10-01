@@ -5,19 +5,20 @@ class CustomElevatedBtn extends StatelessWidget {
       {super.key,
        this.backgroundColor,
        this.foregroundColor,
-       this.onPress, required this.elBtnTxt, required this.elevatedtBtnTxtStyle});
+       this.onPress, required this.elBtnTxt, required this.elevatedtBtnTxtStyle, required this.eltBtnSize});
   final Color? backgroundColor;
   final Color? foregroundColor;
   final VoidCallback? onPress;
   final String elBtnTxt;
   final TextStyle elevatedtBtnTxtStyle;
+  final Size eltBtnSize;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           backgroundColor:backgroundColor,
           foregroundColor:foregroundColor,
-          minimumSize: const Size(double.infinity, 58)),
+          minimumSize:eltBtnSize ),
            
       onPressed: onPress,
       child: Text(

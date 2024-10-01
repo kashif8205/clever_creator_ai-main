@@ -20,9 +20,14 @@ class AppTextStyles {
     fontSize: 42,
     fontWeight: FontWeight.w700,
   );
+   static const TextStyle subheadingStyle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+  );
 
   static const TextStyle secondaryTxtStyle = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.secondryClr);
+      
   static const TextStyle forgetBtnTextStyle = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.fourthClr);
 
@@ -50,5 +55,21 @@ class AppTextStyles {
   static const TextStyle gridViewIconTextStyle = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.primaryclr);
 
+  static const TextStyle cardTxtStyle = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.primaryclr);
+
+  static const TextStyle cardDescStyle = TextStyle(
+      fontSize: 10, fontWeight: FontWeight.w400, color: AppColors.secondryClr);
+
+  static const TextStyle textBtnStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.primaryclr);
   
+  static const TextStyle processOfPlantstyle = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.plantQuesClr);
+
+  static const TextStyle textfieldStyle = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.iconTxtClr);
+
+  static const TextStyle voiceRecTxtStyle = TextStyle(
+      fontSize: 24, fontWeight: FontWeight.w400, color: AppColors.secondryClr);
 }

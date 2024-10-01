@@ -43,5 +43,35 @@ class AppAssets {
   static const String financeSpecialistIcon = 'assets/images/Accountant.png';
   static const String fitnessTrainerIcon = 'assets/images/fitness.png';
   static const String aiCodeIcon = 'assets/images/AI File.png';
+  static const String stackIcon = 'assets/images/Ellipse 235.png';
+  static const String textIcon = 'assets/images/text_icon.png';
+  static const String textToImgIcon = 'assets/images/text_to_img.png';
+  static const String mikeIcon = 'assets/images/mike_icon.png';
+  static const String aiTutorIcon = 'assets/images/ai_tutor_icon.png';
+  static const String earphone = 'assets/images/earphones.png';
+  static const String templatesIcon = 'assets/images/template_icon.png';
+  static const String videoIcon = 'assets/images/video_icon.png';
+  static const String libraryIcon = 'assets/images/library.png';
+  static const String cloudsIcon = 'assets/images/Cloud Development.png';
+  static const String submitDocIcon = 'assets/images/submit_icon.png';
+  static const String bellIcon = 'assets/images/bell_icon.svg';
+  static const String mathOperations = 'assets/images/Math.png';
+  static const String historyIcon = 'assets/images/Order History.png';
+  static const String scienceIcon = 'assets/images/Biotech.png';
+  static const String abcBlock = 'assets/images/ABC Block.png';
+  static const String aiCodingIcon = 'assets/images/Laptop Coding.png';
+  static const String dropDownIcon = 'assets/images/dropdown_icon.svg';
+  static const String avatar = 'assets/images/Avatar.png';
+  static const String copyIcon = 'assets/images/copy_icon.svg';
+  static const String aiScienceLogo = 'assets/images/ai_science_logo.png';
+  static const String documentIcon = 'assets/images/document_icon.svg';
+  static const String sendIcon = 'assets/images/Send.svg';
+  static const String voiceIcon = 'assets/images/voice_icon.png';
+  static const String voiceSymbol = 'assets/images/voice_symbol.png';
+
+
+
+
+
 
 }

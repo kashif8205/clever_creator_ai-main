@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String splashtxt = "CLEVER Creator AI";
+  static const String appName = "CLEVER Creator AI";
   static const String onBoardOneTxt = "Welcome to CLEAVER Creator AI";
   static const String skip = "Skip";
   static const String onBoardTwoTxt = "You can convert any text into images";
@@ -64,9 +64,56 @@ class AppStrings {
   static const String fitnessTrainer = "Fitness Trainer Guru";
   static const String aiCodeHelper = "AI Code Helper";
   static const String textSpan = "Cleaver Creator";
-  
-  
+  static const String testGenDescription = "Custom templates for text generation, Full chat functionality with the ability to upload documents";
+  static const String textToImg = "Text-to-Image";
+  static const String textToImgDes = "Convert textual descriptions into images including inpainting and other image editing features";
+  static const String aiTutor = "AI Tutors";
+  static const String aiTutorDes = "Custom templates for text generation, Full chat functionality with the ability to upload documents";
+  static const String speechTxt = "Speech-to-Text";
+  static const String speechTxtDes = "Transcribe spoken words into text using AI-powered speech recognition Real-time conversation capabilities Translation options into all 20 languages";
+  static const String textSpeech = "Text-to-Speech";
+  static const String textSpeechDes = "Convert text to voice offering realistic and natural sounding voice outputs.";
+  static const String customTemplates = "Custom Templates";
+  static const String customTemplateDes = "Convert textual descriptions into images including inpainting and other image editing features";
+  static const String textToVideo = "Text-to-Video";
+  static const String textToVideoDes = "Generate videos from text using Stable Diffusion, allowing for creative and  dynamic video content generation.";
+  static const String promptLibrary = "Prompt Library";
+  static const String promptLibraryDes = "Generate prompts from text using Stable Diffusion, allowing for creative and  thousands of prompts generation.";
+  static const String promptCloud = "Prompt Generator";
+  static const String promptCloudDes = "Generate prompts from text using Stable Diffusion, allowing for creative and  thousands of prompts generation.";
+  static const String docSummarize = "Document Summarization";
+  static const String docSummarizeDes = "Generate prompts from text using Stable Diffusion, allowing for creative and  thousands of prompts generation.";
+  static const String presetQuestions = "Pre-set questions";
+  static const String createQuestions = "Generate questions using AI for IELTS Test.";
+  static const String aiMAthTutor = "AI Math Tutor";
+  static const String historyTutor = "AI History Tutor";
+  static const String scienceTutor  = "AI Science Tutor";
+  static const String englishTutor = "AI English Tutor";
+  static const String codingForKids = "AI Coding for Kids";
+  static const String studentType = "Student type";
+  static const String age = "Age";
+  static const String grade = "Grade";
+  static const String school = "School";
+  static const String college = "College";
+  static const String university = "University";
+  static const String age13To17 = "13-17";
+  static const String age18To30 = "18-30";
+  static const String age30Above = "30+";
+  static const String cancel = "Cancel";
+  static const String start = "Start";
+  static const String you = "You";
+  static const String processOfPlant = "What is the process by which plants convert sunlight into energy?";
+  static const String editTxt = "Edit";
+  static const String copy = "Copy";
+  static const String scienceTutorExp = "The process by which plants convert sunlight into energy is called photosynthesis. During photosynthesis, plants use sunlight, carbon dioxide, and water to produce glucose (a type of sugar) and oxygen. The glucose provides energy for the plant, and the oxygen is released into the atmosphere.";
+  static const String askMeAnyThing = "Ask me anything...";
+  static const String addnew = "Add New";
+  static const String supportMp3Txt = "Supports .mp3, .wav, .flac, .txt......";
+  static const String orByTxt = "OR by text";
+  static const String createCarTxt = "Create a car with old classic look , white and red color having bigger head lamps and sleek design";
+  static const String voiceRec = "Voice Rec";
+  static const String timerTxt = "00:15:00";
+  static const String voiceRecord = "Voice Recorder";
   
 
-  
 }
