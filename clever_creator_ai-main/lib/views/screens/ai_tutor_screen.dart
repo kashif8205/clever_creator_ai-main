@@ -1,11 +1,10 @@
+import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
-import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
 
 class AiTutorScreen extends StatefulWidget {
@@ -17,8 +16,10 @@ class AiTutorScreen extends StatefulWidget {
 
 class _AiTutorScreenState extends State<AiTutorScreen> {
   // Create lists to store selected values for each ListTile
-  List<String?> selectedStudents = List.filled(5, null); // Adjust size as needed
+  List<String?> selectedStudents =
+      List.filled(5, null); // Adjust size as needed
   List<String?> selectedAges = List.filled(5, null); // Adjust size as needed
+  bool _isExpanded = false;
 
   // Create a list of GlobalKeys for each CustomListTile
   final List<GlobalKey> _listTileKeys = List.generate(5, (_) => GlobalKey());
@@ -41,10 +42,13 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
   ];
 
   void showCustomMenu(BuildContext context, GlobalKey listTileKey, int index) {
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    final RenderBox tileRenderBox = listTileKey.currentContext!.findRenderObject() as RenderBox;
+    final RenderBox overlay =
+        Overlay.of(context).context.findRenderObject() as RenderBox;
+    final RenderBox tileRenderBox =
+        listTileKey.currentContext!.findRenderObject() as RenderBox;
 
-    final double tileBottom = tileRenderBox.localToGlobal(Offset.zero).dy + tileRenderBox.size.height;
+    final double tileBottom =
+        tileRenderBox.localToGlobal(Offset.zero).dy + tileRenderBox.size.height;
 
     showMenu(
       context: context,
@@ -59,203 +63,282 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
       ),
       constraints: BoxConstraints(
         maxWidth: overlay.size.width - 40,
-        maxHeight: 205,
+        maxHeight: 245,
       ),
       color: AppColors.menuBackgroundClr,
       items: [
         PopupMenuItem<int>(
           value: 0,
-          child: ExpansionTile(
-          title:const Text('ExpansionTile 1'),
-          subtitle:const Text('Trailing expansion arrow icon'),
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 50,
-                  width: 100,
-                  color: Colors.red,
+          child: Theme(
+            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              collapsedBackgroundColor: AppColors
+                  .menuBackgroundClr, // Optional: Change collapsed color for better visibility
+              // Optional: Adjust text color if necessary
+              iconColor: Colors.white,
+              showTrailingIcon: false,
+              onExpansionChanged: (bool expanded) {
+                setState(() {
+                  _isExpanded = expanded;
+                });
+              },
+              trailing: null,
+              title: Container(
+                height: 43,
+                width: 313,
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.textfieldClr,
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                Container(
-                  height: 50,
-                  width: 100,
-                  color: Colors.blue,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(AppStrings.studentType,
+                        style: AppTextStyles
+                            .primaryTxtStyle), // Change text color to white
+                    // Custom expansion icon inside the border
+                    Icon(
+                      _isExpanded
+                          ? Icons.expand_less // Icon when expanded
+                          : Icons.expand_more, // Icon when collapsed
+                      color: Colors.white, // Change icon color to white
+                    ),
+                  ],
                 ),
-                Container(
-                  height: 50,
-                  width: 100,
-                  color: Colors.orange,
+              ),
+              tilePadding: EdgeInsets.zero,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    // Enable horizontal scrolling
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.school,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                        const SizedBox(
+                            width: 10), // Add spacing between containers
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.college,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                        const SizedBox(
+                            width: 10), // Add spacing between containers
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.university,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
-          ],
-        ),),
-        //   DropdownButtonHideUnderline(
-        //     child: DropdownButton2(
-        //       dropdownStyleData: const DropdownStyleData(
-        //         maxHeight: 200,
-        //       ),
-        //       buttonStyleData: ButtonStyleData(
-        //         height: 43,
-        //         width: overlay.size.width - 40, // Dynamic width
-        //         padding: const EdgeInsets.symmetric(horizontal: 20),
-        //         decoration: BoxDecoration(
-        //           color: AppColors.textfieldClr,
-        //           borderRadius: BorderRadius.circular(10),
-        //         ),
-        //       ),
-        //       isExpanded: true,
-        //       items:  [
-                
-        //         DropdownMenuItem(
-        //           value: AppStrings.college,
-        //           child:ExpansionTile(
-        //   title:const Text('ExpansionTile 1'),
-        //   subtitle:const Text('Trailing expansion arrow icon'),
-        //   children: <Widget>[
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: [
-        //         Container(
-        //           height: 50,
-        //           width: 100,
-        //           color: Colors.red,
-        //         ),
-        //         Container(
-        //           height: 50,
-        //           width: 100,
-        //           color: Colors.blue,
-        //         ),
-        //         Container(
-        //           height: 50,
-        //           width: 100,
-        //           color: Colors.orange,
-        //         ),
-        //       ],
-        //     ),
-        //   ],
-        // ),
-        //         ),
-        //         DropdownMenuItem(
-        //           value: AppStrings.college,
-        //           child: Text(
-        //             AppStrings.college,
-        //             style: AppTextStyles.primaryTxtStyle,
-        //           ),
-        //         ),
-        //         DropdownMenuItem(
-        //           value: AppStrings.university,
-        //           child: Text(
-        //             AppStrings.university,
-        //             style: AppTextStyles.primaryTxtStyle,
-        //           ),
-        //         ),
-        //       ],
-        //       value: selectedStudents[index], // Use index to access the correct value
-        //       hint: const Text(
-        //         AppStrings.studentType,
-        //         style: AppTextStyles.primaryTxtStyle,
-        //       ),
-        //       onChanged: (String? value) {
-        //         setState(() {
-        //           selectedStudents[index] = value; // Update the selected value for this index
-        //         });
-        //       },
-        //     ),
-        //   ),
-        // ),
+          ),
+        ),
         PopupMenuItem<int>(
           value: 1,
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton2(
-              dropdownStyleData: const DropdownStyleData(
-                maxHeight: 200,
-              ),
-              buttonStyleData: ButtonStyleData(
+          child: Theme(
+            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              collapsedBackgroundColor: AppColors
+                  .menuBackgroundClr, // Optional: Change collapsed color for better visibility
+              // Optional: Adjust text color if necessary
+              iconColor: Colors.white,
+              showTrailingIcon: false,
+              onExpansionChanged: (bool expanded) {
+                setState(() {
+                  _isExpanded = expanded;
+                });
+              },
+              trailing: null,
+              title: Container(
                 height: 43,
-                width: overlay.size.width - 40, // Dynamic width
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                width: 313,
+                padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color: AppColors.textfieldClr,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(AppStrings.age,
+                        style: AppTextStyles
+                            .primaryTxtStyle), // Change text color to white
+                    // Custom expansion icon inside the border
+                    Icon(
+                      _isExpanded
+                          ? Icons.expand_less // Icon when expanded
+                          : Icons.expand_more, // Icon when collapsed
+                      color: Colors.white, // Change icon color to white
+                    ),
+                  ],
                 ),
               ),
-              isExpanded: true,
-              items: const [
-                DropdownMenuItem(
-                  value: AppStrings.age,
-                  child: Text(
-                    AppStrings.age,
-                    style: AppTextStyles.primaryTxtStyle,
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: AppStrings.age13To17,
-                  child: Text(
-                    AppStrings.age13To17,
-                    style: AppTextStyles.primaryTxtStyle,
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: AppStrings.age18To30,
-                  child: Text(
-                    AppStrings.age18To30,
-                    style: AppTextStyles.primaryTxtStyle,
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: AppStrings.age30Above,
-                  child: Text(
-                    AppStrings.age30Above,
-                    style: AppTextStyles.primaryTxtStyle,
+              tilePadding: EdgeInsets.zero,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    // Enable horizontal scrolling
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.age13To17,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                        const SizedBox(
+                            width: 10), // Add spacing between containers
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.age18To30,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                        const SizedBox(
+                            width: 10), // Add spacing between containers
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.age30Above,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
-              value: selectedAges[index], // Use index to access the correct value
-              hint: const Text(
-                AppStrings.age,
-                style: AppTextStyles.primaryTxtStyle,
-              ),
-              onChanged: (String? value) {
-                setState(() {
-                  selectedAges[index] = value; // Update the selected value for this index
-                });
-              },
             ),
           ),
         ),
         PopupMenuItem<int>(
           value: 2,
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton2(
-              buttonStyleData: ButtonStyleData(
+          child: Theme(
+            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              collapsedBackgroundColor: AppColors
+                  .menuBackgroundClr, // Optional: Change collapsed color for better visibility
+              // Optional: Adjust text color if necessary
+              iconColor: Colors.white,
+              showTrailingIcon: false,
+              onExpansionChanged: (bool expanded) {
+                setState(() {
+                  _isExpanded = expanded;
+                });
+              },
+              trailing: null,
+              title: Container(
                 height: 43,
-                width: overlay.size.width - 40, // Dynamic width
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                width: 313,
+                padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color: AppColors.textfieldClr,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(AppStrings.grade,
+                        style: AppTextStyles
+                            .primaryTxtStyle), // Change text color to white
+                    // Custom expansion icon inside the border
+                    Icon(
+                      _isExpanded
+                          ? Icons.expand_less // Icon when expanded
+                          : Icons.expand_more, // Icon when collapsed
+                      color: Colors.white, // Change icon color to white
+                    ),
+                  ],
                 ),
               ),
-              isExpanded: true,
-              items: const [
-                DropdownMenuItem(
-                  value: AppStrings.grade,
-                  child: Text(
-                    AppStrings.grade,
-                    style: AppTextStyles.primaryTxtStyle,
+              tilePadding: EdgeInsets.zero,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    // Enable horizontal scrolling
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 43,
+                          width: 89,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            AppStrings.school,
+                            style: AppTextStyles.skipEltBtnStyle,
+                          )),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
-              value: AppStrings.grade,
-              onChanged: (value) {
-                // Handle grade selection
-              },
             ),
           ),
         ),
-        PopupMenuItem(
+        PopupMenuItem<int>(
+          value: 3,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -267,7 +350,7 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
                 text: AppStrings.cancel,
                 textStyle: AppTextStyles.textBtnStyle,
               ),
-              const SizedBox(width: 8), // Optional spacing between buttons
+              const SizedBox(width: 8),
               CustomTextButton(
                 onPressed: () {
                   Navigator.pop(context); // Close the menu
@@ -295,19 +378,13 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             for (int index = 0; index < _listTileKeys.length; index++) ...[
-              // CustomListTile(
-              //   key: _listTileKeys[index],
-              //   leadingIcon: Image.asset(_icons[index]),
-              //   titile: Text(
-              //     _titles[index],
-              //     style: AppTextStyles.primaryTxtStyle,
-              //   ),
-              //   trailingIcon: const Icon(
-              //     Icons.arrow_forward_ios_outlined,
-              //     size: 15,
-              //   ),
-              //   onTap: () => showCustomMenu(context, _listTileKeys[index], index), // Pass index
-              // ),
+              CustomListTile(
+                key: _listTileKeys[index],
+                leadingIcon: _icons[index],
+                titile: _titles[index],
+                onTap: () => showCustomMenu(
+                    context, _listTileKeys[index], index), // Pass index
+              ),
               const SizedBox(height: 10),
             ],
           ],
@@ -316,8 +393,6 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
     );
   }
 }
-
-
 
 
 
@@ -625,14 +700,13 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
 //             for (int index = 0; index < _listTileKeys.length; index++) ...[
 //               CustomListTile(
 //                 key: _listTileKeys[index],
-//                 leadingIcon: Image.asset(_icons[index]),
+//                 leadingIcon:_icons[index],
 //                 titile: Text(
 //                   _titles[index],
 //                   style: AppTextStyles.primaryTxtStyle,
 //                 ),
-//                 trailingIcon: const Icon(
-//                   Icons.arrow_forward_ios_outlined,
-//                   size: 15,
+//                 trailingIcon: Icons.forward_rounded,
+                 
 //                 ),
 //                 onTap: () => showCustomMenu(context, _listTileKeys[index]),
 //               ),

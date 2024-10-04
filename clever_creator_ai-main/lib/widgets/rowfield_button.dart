@@ -9,9 +9,10 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomFieldAndButton extends StatelessWidget {
   const CustomFieldAndButton({
-    super.key, required this.icon,
+    super.key, required this.icon, this.onPressed,
   });
-final String? icon;
+final String icon;
+final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,10 +21,9 @@ final String? icon;
           child: CustomTextField(
             borderRadius: const BorderRadius.all(Radius.circular(30)),
             borderSide: const BorderSide(color: AppColors.iconTxtClr),
-          
             hintText: AppStrings.askMeAnyThing,
             textStyle: AppTextStyles.textfieldStyle,
-            // suffixIcon:icon
+            suffixIcon:icon
           )
         ),
         const SizedBox(width: 20),
@@ -35,11 +35,12 @@ final String? icon;
             borderRadius: BorderRadius.circular(100),
           ),
           child: Center(
-            child: SvgPicture.asset(
+            child: IconButton(onPressed: onPressed,
+            icon: SvgPicture.asset(
               AppAssets.sendIcon,
               width: 18,
               height: 18,
-            ),
+            ),)
           ),
         ),
       ],

@@ -5,7 +5,6 @@ import 'package:clever_creator_ai/views/screens/document_summarization_screen.da
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ImgPrompt2Screen extends StatefulWidget {
   const ImgPrompt2Screen({super.key});
@@ -45,44 +44,36 @@ class _ImgPrompt2ScreenState extends State<ImgPrompt2Screen> {
             const SizedBox(
               height: 20,
             ),
-            Row(
+          const  Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RowIcon(
-                  icon: SvgPicture.asset(AppAssets.downloadIcon),
-                  iconTxt: AppStrings.download,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                RowIcon(
-                  icon: SvgPicture.asset(AppAssets.shareIcon),
-                  iconTxt: AppStrings.share,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                RowIcon(
-                  icon: SvgPicture.asset(AppAssets.regenerateIcon),
-                  iconTxt: AppStrings.regenerate,
-                ),
+               CustomRowButton(icon: AppAssets.downloadIcon,
+               text: AppStrings.download,),
+                //  SizedBox(
+                //   width: 20,
+                // ),
+              CustomRowButton(icon: AppAssets.shareIcon,
+               text: AppStrings.share,),
+                //  SizedBox(
+                //   width: 20,
+                // ),
+               CustomRowButton(icon: AppAssets.regenerateIcon,
+               text: AppStrings.regenerate,), 
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            Row(
+           const Row(
               children: [
-                RowIcon(
-                    icon: SvgPicture.asset(AppAssets.editIcon),
-                    iconTxt: AppStrings.edit),
-                const SizedBox(
+                CustomRowButton(icon: AppAssets.editIcon,
+               text: AppStrings.edit,),
+                 SizedBox(
                   width: 20,
                 ),
-                RowIcon(
-                    icon: SvgPicture.asset(AppAssets.likeIcon),
-                    iconTxt: AppStrings.like),
+                CustomRowButton(icon: AppAssets.likeIcon,
+               text: AppStrings.like,),
               ],
             )
           ],

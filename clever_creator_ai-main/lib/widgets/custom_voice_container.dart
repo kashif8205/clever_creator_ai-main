@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 
 class VoiceRecoderContainer extends StatelessWidget {
   const VoiceRecoderContainer({
-    super.key,
+    super.key, this.iconButton, this.onPressed 
   });
-
+final String? iconButton;
+final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +19,9 @@ class VoiceRecoderContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       child: Center(
-        child: Image.asset(AppAssets.voiceIcon),
+        child: IconButton(
+          onPressed: onPressed, 
+          icon: Image.asset(AppAssets.voiceIcon))
       ),
     );
   }

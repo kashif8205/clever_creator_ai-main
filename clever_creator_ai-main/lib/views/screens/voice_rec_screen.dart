@@ -57,7 +57,11 @@ class _VoiceRecScreenState extends State<VoiceRecScreen> {
               const SizedBox(
                 height: 10,
               ),
-              const VoiceRecoderContainer(),
+              VoiceRecoderContainer(
+                onPressed: () {
+                  print("Its working");
+                },
+              ),
             ],
           ),
         ),

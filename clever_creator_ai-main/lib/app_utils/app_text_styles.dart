@@ -14,6 +14,7 @@ class AppTextStyles {
   static const TextStyle skipEltBtnStyle = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
+    color: AppColors.primaryclr
   );
 
   static const TextStyle screenTitleStyle = TextStyle(

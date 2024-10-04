@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 
 class CustomUploadContainer extends StatelessWidget {
   const CustomUploadContainer({
-    super.key, required this.text,
+    super.key, required this.text, this.onPressed,
   });
 final String text;
+final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,9 +27,7 @@ final String text;
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
              CustomIconButton(iconButton: AppAssets.uploadIcon,
-           onPressed: () {
-             
-           },
+           onPressed: onPressed
              ),
                Text(
                 text,

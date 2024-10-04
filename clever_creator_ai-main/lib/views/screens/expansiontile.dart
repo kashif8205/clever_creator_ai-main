@@ -25,7 +25,11 @@ class _ExpansiontileWidgetState extends State<ExpansiontileWidget> {
                 Theme(
                   data: Theme.of(context)
                       .copyWith(dividerColor: Colors.transparent),
-                  child: ExpansionTile(
+                  child: 
+                  ExpansionTile(
+                    collapsedBackgroundColor: AppColors.menuBackgroundClr, // Optional: Change collapsed color for better visibility
+                    // Optional: Adjust text color if necessary
+                    iconColor: Colors.white,
                     showTrailingIcon: false,
                     onExpansionChanged: (bool expanded) {
                       setState(() {
@@ -34,21 +38,25 @@ class _ExpansiontileWidgetState extends State<ExpansiontileWidget> {
                     },
                     trailing: null,
                     title: Container(
+                      height: 43,
+                      width: 313,
                       padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey, width: 2),
+                       color: AppColors.textfieldClr,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(AppStrings.studentType,
-                              style: AppTextStyles.primaryTxtStyle),
+                              style: AppTextStyles
+                                  .primaryTxtStyle), // Change text color to white
                           // Custom expansion icon inside the border
                           Icon(
                             _isExpanded
                                 ? Icons.expand_less // Icon when expanded
                                 : Icons.expand_more, // Icon when collapsed
+                            color: Colors.white, // Change icon color to white
                           ),
                         ],
                       ),
@@ -57,47 +65,56 @@ class _ExpansiontileWidgetState extends State<ExpansiontileWidget> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                           Container(
-                              height: 43,
-                              width: 89,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                 
-                                  width: 1.0, 
+                        child: SingleChildScrollView(
+                          // Enable horizontal scrolling
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 43,
+                                width: 89,
+                                decoration: BoxDecoration(
+                                  border: Border.all(width: 1.0),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(
-                                    10), 
+                                child: const Center(
+                                    child: Text(
+                                  AppStrings.school,
+                                  style: AppTextStyles.skipEltBtnStyle,
+                                )),
                               ),
-                              
-                            ), 
-                            Container(
-                              height: 43,
-                              width: 89,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                 
-                                  width: 1.0, 
+                              const SizedBox(
+                                  width: 10), // Add spacing between containers
+                              Container(
+                                height: 43,
+                                width: 89,
+                                decoration: BoxDecoration(
+                                  border: Border.all(width: 1.0),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(
-                                    10), 
+                                child: const Center(
+                                    child: Text(
+                                  AppStrings.college,
+                                  style: AppTextStyles.skipEltBtnStyle,
+                                )),
                               ),
-                            ),
-                           Container(
-                              height: 43,
-                              width: 89,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                 
-                                  width: 1.0, 
+                              const SizedBox(
+                                  width: 10), // Add spacing between containers
+                              Container(
+                                height: 43,
+                                width: 89,
+                                decoration: BoxDecoration(
+                                  border: Border.all(width: 1.0),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(
-                                    10), 
+                                child: const Center(
+                                    child: Text(
+                                  AppStrings.university,
+                                  style: AppTextStyles.skipEltBtnStyle,
+                                )),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

@@ -6,19 +6,20 @@ import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:clever_creator_ai/widgets/rowfield_button.dart';
 import 'package:flutter/material.dart';
 
-class TextGenerationScreen2 extends StatefulWidget {
-  const TextGenerationScreen2({super.key});
+class TextToImageScreen extends StatefulWidget {
+  const TextToImageScreen({super.key});
 
   @override
-  State<TextGenerationScreen2> createState() => _TextGenerationScreen2State();
+  State<TextToImageScreen> createState() => _TextToImageScreenState();
 }
 
-class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
+class _TextToImageScreenState extends State<TextToImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-          text: AppStrings.textGeneration,),
+        text: AppStrings.textToImage,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -40,28 +41,25 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
                 height: 10,
               ),
               const Text(
-                AppStrings.storyTxt,
+                AppStrings.beautifulStoryTxt,
                 style: AppTextStyles.processOfPlantstyle,
                 textAlign: TextAlign.start,
               ),
               const SizedBox(
                 height: 10,
               ),
-              const  Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 CustomRowButton(icon: AppAssets.editIcon,
-                 text: AppStrings.editTxt,),
-                  //  SizedBox(
-                  //   width: 20,
-                  // ),
-                CustomRowButton(icon: AppAssets.copyIcon,
-                 text: AppStrings.copy,),
-                  //  SizedBox(
-                  //   width: 20,
-                  // ),
-                 
+                  CustomRowButton(
+                    icon: AppAssets.editIcon,
+                    text: AppStrings.editTxt,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.copyIcon,
+                    text: AppStrings.copy,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -80,7 +78,7 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
                     width: 10,
                   ),
                   const Text(
-                    AppStrings.aiTextGenraton,
+                    AppStrings.textToImgGen,
                     style: AppTextStyles.imgLableTxtStyle,
                   ),
                 ],
@@ -89,47 +87,54 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
                 height: 10,
               ),
               const Text(
-                AppStrings.aiTextDescription,
+                AppStrings.imgLableTxt,
                 style: AppTextStyles.imgLableTxtStyle,
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 10,
               ),
-               const  Row(
+              Image.asset(AppAssets.babyImg),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 CustomRowButton(icon: AppAssets.downloadIcon,
-                 text: AppStrings.download,),
-                 
-                CustomRowButton(icon: AppAssets.shareIcon,
-                 text: AppStrings.share,),
-                  
-                 CustomRowButton(icon: AppAssets.regenerateIcon,
-                 text: AppStrings.regenerate,), 
+                  CustomRowButton(
+                    icon: AppAssets.downloadIcon,
+                    text: AppStrings.download,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.shareIcon,
+                    text: AppStrings.share,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.regenerateIcon,
+                    text: AppStrings.regenerate,
+                  ),
+                ],
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomRowButton(
+                    icon: AppAssets.editIcon,
+                    text: AppStrings.edit,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.likeIcon,
+                    text: AppStrings.like,
+                  ),
                 ],
               ),
               const SizedBox(
-                height: 20,
-              ),
-              const Divider(
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              const Divider(
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 30,
+                height: 10,
               ),
               CustomFieldAndButton(
-              icon: AppAssets.imageUploadIcon,
-              onPressed: () {
-                print('Hello');
-              },
-             ),
+                icon: AppAssets.imageUploadIcon,
+                onPressed: () {
+                  print('Hello');
+                },
+              ),
             ],
           ),
         ),

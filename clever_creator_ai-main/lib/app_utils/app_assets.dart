@@ -68,6 +68,8 @@ class AppAssets {
   static const String sendIcon = 'assets/images/Send.svg';
   static const String voiceIcon = 'assets/images/voice_icon.png';
   static const String voiceSymbol = 'assets/images/voice_symbol.png';
+  static const String imageUploadIcon = 'assets/images/image_upload.svg';
+  static const String settingsIcon = 'assets/images/setting_icon.svg';
 
 
 

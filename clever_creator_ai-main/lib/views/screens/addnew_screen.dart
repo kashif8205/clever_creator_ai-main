@@ -1,4 +1,3 @@
-import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
@@ -22,21 +21,27 @@ class _AddnewScreenState extends State<AddnewScreen> {
     return Scaffold(
       appBar: const CustomAppBar(
         text: AppStrings.addnew,
-        icon: AppAssets.share,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Stack(
+             Stack(
               alignment: Alignment.bottomCenter,
               clipBehavior: Clip.none,
               children: [
                 CustomUploadContainer(
+                onPressed: () {
+                  print("hello");
+                },
                   text: AppStrings.supportMp3Txt,
                 ),
-                Positioned(bottom: -28, child: VoiceRecoderContainer()),
+                Positioned(bottom: -28, child: VoiceRecoderContainer(
+                  onPressed: () {
+                    print("Hello");
+                  },
+                )),
               ],
             ),
             const SizedBox(height: 50),
@@ -69,10 +74,10 @@ class _AddnewScreenState extends State<AddnewScreen> {
             CustomElevatedBtn(
               eltBtnSize: const Size(double.infinity, 58),
               onPress: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const TextGenerationScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TextGenerationScreen()));
               },
               backgroundColor: AppColors.fourthClr,
               elBtnTxt: AppStrings.generateBtn,

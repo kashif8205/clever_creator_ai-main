@@ -1,4 +1,4 @@
-import 'package:clever_creator_ai/views/screens/image_prompt_gen_screen.dart';
+import 'package:clever_creator_ai/views/screens/text_to_video_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +18,6 @@ class MyApp extends StatelessWidget {
           fontFamily: 'PlusJakartaSans'
         ),
         debugShowCheckedModeBanner: false,
-        home: const ImagePromptGenScreen());
+        home: const TextToVideoScreen());
   }
 }
