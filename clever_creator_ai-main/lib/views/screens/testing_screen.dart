@@ -283,3 +283,60 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// class CustomDropdownButton extends StatelessWidget {
+//   final String? selectedValue;
+//   final ValueChanged<String?>? onChanged;
+//   final List<String> items;
+
+//   const CustomDropdownButton({
+//     super.key,
+//      this.selectedValue,
+//      this.onChanged,
+//     required this.items, required String hintText, required IconData leadingIcon, required IconData dropdownIcon,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 44,
+//       width: 90,
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(16),
+//         border: Border.all(color: Colors.grey, width: 2),
+//       ),
+//       child: DropdownButtonHideUnderline(
+//         child: DropdownButton<String>(
+//           value: selectedValue,
+//           hint: Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+//             child: Text('Select'),
+//           ),
+//           onChanged: onChanged,
+//           items: items.map((String item) {
+//             return DropdownMenuItem<String>(
+//               value: item,
+//               child: Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
+//                 child: Text(item),
+//               ),
+//             );
+//           }).toList(),
+//         ),
+//       ),
+//     );
+//   }
+// }

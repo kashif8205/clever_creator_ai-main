@@ -1,10 +1,10 @@
-import 'package:clever_creator_ai/views/screens/text_to_video_screen.dart';
+import 'package:clever_creator_ai/views/screens/education_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
+ 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +18,6 @@ class MyApp extends StatelessWidget {
           fontFamily: 'PlusJakartaSans'
         ),
         debugShowCheckedModeBanner: false,
-        home: const TextToVideoScreen());
+        home: const EducationScreen());
   }
 }

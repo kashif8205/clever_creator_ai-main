@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
+
 class AppAssets {
   static const String aiLogo = 'assets/images/ai.png';
   static const String aestronaut = 'assets/images/aestronaut.png';
@@ -70,10 +73,10 @@ class AppAssets {
   static const String voiceSymbol = 'assets/images/voice_symbol.png';
   static const String imageUploadIcon = 'assets/images/image_upload.svg';
   static const String settingsIcon = 'assets/images/setting_icon.svg';
-
-
-
-
-
-
+  static const String categoriesIcon = 'assets/images/Categorize.png';
+  static const String addIcon = 'assets/images/Add.png';
+  static const String manageTempIcon = 'assets/images/manage_template.png';
+  static const String searchIcon = 'assets/images/search_icon.svg';
+  static const String questionIcon = 'assets/images/Ask_Question.png';
+  
 }

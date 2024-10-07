@@ -16,6 +16,7 @@ class TextToVideoScreen extends StatefulWidget {
 
 class _TextToVideoScreenState extends State<TextToVideoScreen> {
   late VideoPlayerController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -55,17 +56,13 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               const Text(
                 AppStrings.beautifulStoryTxt,
                 style: AppTextStyles.processOfPlantstyle,
                 textAlign: TextAlign.start,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,49 +81,59 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Divider(
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
+              const Divider(thickness: 1),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Image.asset(AppAssets.aiScienceLogo),
-                  const SizedBox(
-                    width: 10,
-                  ),
+                  const SizedBox(width: 10),
                   const Text(
                     AppStrings.textToVideoTxt,
                     style: AppTextStyles.imgLableTxtStyle,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               const Text(
                 AppStrings.imgLableTxt,
                 style: AppTextStyles.imgLableTxtStyle,
               ),
-            Center(
-        child: _controller.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
-              )
-            : CircularProgressIndicator(), // Show a loader while video is being initialized
-      ),
-      
-              const SizedBox(
-                height: 10,
+              const SizedBox(height: 10),
+              // Video player with rounded edges and play button overlay
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  _controller.value.isInitialized
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(16.0), // Set your desired border radius
+                          child: AspectRatio(
+                            aspectRatio: _controller.value.aspectRatio,
+                            child: VideoPlayer(_controller),
+                          ),
+                        )
+                      : CircularProgressIndicator(),
+                  if (_controller.value.isInitialized)
+                    IconButton(
+                      icon: Icon(
+                        _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                        size: 50,
+                        color: Colors.white.withOpacity(0.7),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _controller.value.isPlaying
+                              ? _controller.pause()
+                              : _controller.play();
+                        });
+                      },
+                    ),
+                ],
               ),
-             const SingleChildScrollView(
+              const SizedBox(height: 10),
+              const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child:  Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,16 +149,14 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
                       icon: AppAssets.regenerateIcon,
                       text: AppStrings.regenerate,
                     ),
-                     CustomRowButton(
+                    CustomRowButton(
                       icon: AppAssets.likeIcon,
                       text: AppStrings.like,
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 200,
-              ),
+              const SizedBox(height: 40),
               CustomFieldAndButton(
                 icon: AppAssets.imageUploadIcon,
                 onPressed: () {
@@ -160,18 +165,6 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
               ),
             ],
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
       ),
     );

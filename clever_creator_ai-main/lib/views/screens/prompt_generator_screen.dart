@@ -26,6 +26,7 @@ class _PromptGeneratorScreenState extends State<PromptGeneratorScreen> {
             CustomListTile(
               leadingIcon: AppAssets.imagePg,
               titile: AppStrings.promptGenerator,
+              trailingIcon: Icons.arrow_forward_ios_outlined,
               onTap: () {
                 Navigator.push(
                     context,
@@ -39,6 +40,7 @@ class _PromptGeneratorScreenState extends State<PromptGeneratorScreen> {
             const CustomListTile(
               leadingIcon: AppAssets.contentPg,
               titile: AppStrings.contentPromptgenTxt,
+              trailingIcon: Icons.arrow_forward_ios_outlined,
             ),
           ],
         ),

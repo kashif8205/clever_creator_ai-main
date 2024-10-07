@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
               : null,
         ),
         suffixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: suffixIcon != null 
               ? SvgPicture.asset(suffixIcon!) 
               : null,

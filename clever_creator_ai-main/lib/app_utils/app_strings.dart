@@ -44,7 +44,7 @@ class AppStrings {
   static const String uploadPDfTxt = "Supports PDF, Text, Docx......";
   static const String submit = "Submit";
   static const String textGeneration = "Text Generation";
-  static const String chatBot = "My Chatbot";
+  static const String myChatBot = "My Chatbot";
   static const String ieltsTest = "IELTS Test Specialist";
   static const String aiMasterMind = "AI Masterminds";
   static const String python = "Python Guru";
@@ -124,5 +124,50 @@ class AppStrings {
   static const String pressAndHold = "Press and hold the audio button to record...";
   static const String speechToTxt = "Speech to text";
   static const String textToVideoTxt = "Text to video";
-  static const String settings = "Sttings";
+  static const String settings = "Settings";
+  static const String imageGenerator = "Image Generator";
+  static const String clickToUploadImg = "Click here toUpload image to  re-generate image.";
+  static const String customTemplate = "Custom Template";
+  static const String categorize = "Categories";
+  static const String addTemplate = "Add Template";
+  static const String manageTemplate = "Manage Template";
+  static const String customCategories = "Custom Categories";
+  static const String categoryAdd = "Category Add";
+  static const String category = "Category";
+  static const String enterIcon = "Enter Icon";
+  static const String save = "Save";
+  static const String basicInfo = "Basic Info";
+  static const String templateName = "Template Name";
+  static const String icon = "Icon";
+  static const String selectCategory = "Select Category";
+  static const String description = "Description";
+  static const String inputInfo = "Input Info";
+  static const String inputField = "Input Field";
+  static const String inputName = "Input Name";
+  static const String inputLabel = "Input Label";
+  static const String customPrompt = "Custom Prompt";
+  static const String enterMsg = "Enter your message";
+  static const String template = "Templates";
+  static const String searchOrderId = "Search for order ID, Customer, Order status";
+  static const String search = "Search";
+  static const String allTemplates = "All Templates";
+  static const String cleverCreater = "Clever Creator";
+  static const String cleverAiImage = "Create AI Images";
+  static const String createrAiContentFree = "Create AI Content Free";
+  static const String chatBot = "Chat Bot";
+  static const String chatBotScreenDescription = "Once upon a time, in the quaint town of Meadowville, there lived a spirited high school student named Lily. Lily was known for her enthusiasm for learning and her adventurous spirit. One crisp autumn morning, as she set out for school, little did she know that this ordinary day would turn into an extraordinary adventure.";
+  static const String education = "Education";
+  static const String mathematics = "Mathematics";
+  static const String science = "Science";
+  static const String whatIsFormula = "What is the formula of a+n = 2nb";
+  static const String writePrompt = "Write prompt for new search.";
+  static const String whatForceCauses = "What is the force that causes objects to fall ?";
+  static const String chemicalSymbolOfWater = "What is the chemical symbol for water?";
+
+  
+   
+
+
+
+
 }

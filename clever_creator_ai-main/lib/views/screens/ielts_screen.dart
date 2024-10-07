@@ -30,11 +30,13 @@ class _IeltsTestScreenState extends State<IeltsTestScreen> {
             },
             child: const CustomListTile(
               titile: AppStrings.presetQuestions,
+              trailingIcon: Icons.arrow_forward_ios_outlined,
             ),
           ),
            const SizedBox(height: 10,),
            const CustomListTile(
             titile: AppStrings.createQuestions,
+            trailingIcon: Icons.arrow_forward_ios_outlined,
           )
           ],
         ),

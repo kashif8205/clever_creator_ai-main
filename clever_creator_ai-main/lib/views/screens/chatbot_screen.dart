@@ -6,22 +6,21 @@ import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:clever_creator_ai/widgets/rowfield_button.dart';
 import 'package:flutter/material.dart';
 
-class TextGenerationScreen2 extends StatefulWidget {
-  const TextGenerationScreen2({super.key});
+class ChatbotScreen extends StatefulWidget {
+  const ChatbotScreen({super.key});
 
   @override
-  State<TextGenerationScreen2> createState() => _TextGenerationScreen2State();
+  State<ChatbotScreen> createState() => _ChatbotScreenState();
 }
 
-class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
+class _ChatbotScreenState extends State<ChatbotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          text: AppStrings.textGeneration,),
+      appBar: const CustomAppBar(text: AppStrings.chatBot),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
               Row(
@@ -47,14 +46,18 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
               const SizedBox(
                 height: 10,
               ),
-              const  Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 CustomRowButton(icon: AppAssets.editIcon,
-                 text: AppStrings.editTxt,),
-                CustomRowButton(icon: AppAssets.copyIcon,
-                 text: AppStrings.copy,),
+                  CustomRowButton(
+                    icon: AppAssets.editIcon,
+                    text: AppStrings.editTxt,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.copyIcon,
+                    text: AppStrings.copy,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -72,34 +75,35 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
-                    AppStrings.aiTextGenraton,
-                    style: AppTextStyles.imgLableTxtStyle,
-                  ),
+               const Text(AppStrings.chatBot,
+                style: AppTextStyles.imgLableTxtStyle,)
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                AppStrings.aiTextDescription,
-                style: AppTextStyles.imgLableTxtStyle,
-              ),
+             const Text(AppStrings.chatBotScreenDescription,
+             style: AppTextStyles.imgLableTxtStyle,
+             ),
               const SizedBox(
                 height: 20,
               ),
-               const  Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 CustomRowButton(icon: AppAssets.downloadIcon,
-                 text: AppStrings.download,),
-                 
-                CustomRowButton(icon: AppAssets.shareIcon,
-                 text: AppStrings.share,),
-                  
-                 CustomRowButton(icon: AppAssets.regenerateIcon,
-                 text: AppStrings.regenerate,), 
+                  CustomRowButton(
+                    icon: AppAssets.copyIcon,
+                    text: AppStrings.copy,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.shareIcon,
+                    text: AppStrings.share,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.regenerateIcon,
+                    text: AppStrings.regenerate,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -118,11 +122,11 @@ class _TextGenerationScreen2State extends State<TextGenerationScreen2> {
                 height: 30,
               ),
               CustomFieldAndButton(
-              icon: AppAssets.imageUploadIcon,
-              onPressed: () {
-                print('Hello');
-              },
-             ),
+                icon: AppAssets.documentIcon,
+                onPressed: () {
+                  print('Hello');
+                },
+              ),
             ],
           ),
         ),
