@@ -16,6 +16,7 @@ class AppColors {
   static const Color plantQuesClr = Color(0xFFDF9ECD);
   static const Color circleAvataClr = Color(0xFF5D5FEF);
   static const Color timerBGClr = Color(0xFF323232);
+  static const Color aiClr = Color(0xFFFF4B26);
   
 }
  

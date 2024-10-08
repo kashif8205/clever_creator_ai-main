@@ -163,6 +163,29 @@ class AppStrings {
   static const String writePrompt = "Write prompt for new search.";
   static const String whatForceCauses = "What is the force that causes objects to fall ?";
   static const String chemicalSymbolOfWater = "What is the chemical symbol for water?";
+  static const String pleaseWriteLetter = "Please write me letter for my it company which inclu....";
+  static const String recent = "Recent";
+  static const String cleverTxt = "Clever Creater.";
+  static const String ai = "AI";
+  static const String profile = "Profile";
+  static const String profileName = "Mohammad Kashif";
+  static const String email = "Email";
+  static const String phone = "Phone";
+  static const String changePassword = "Change Password";
+  static const String stats$Subscription = "Stats & Subscription";
+  static const String token = "Token";
+  static const String totalTokenUsed = "Totol Token Used";
+  static const String tokenLeft = "Token Left";
+  static const String totalWordsGenerated = "Total Words Generated (Monthly)";
+  static const String credit = "Credit";
+  static const String totalCreditUsed = "Total Credit Used";
+  static const String creditLeft = "Credit Left";
+  static const String totalImgGenrated = "Total Image Generated(Monthly)";
+  static const String subscription = "Subscription";
+  static const String crntSubscripPlan = "Current Subscription Plan";
+  static const String resetDate = "Reset Date";
+  static const String upgradePlan = "Upgrade Plan";
+  
 
   
    

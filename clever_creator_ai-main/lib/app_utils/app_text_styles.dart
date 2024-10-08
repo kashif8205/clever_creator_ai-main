@@ -73,4 +73,12 @@ class AppTextStyles {
 
   static const TextStyle voiceRecTxtStyle = TextStyle(
       fontSize: 24, fontWeight: FontWeight.w400, color: AppColors.secondryClr);
+
+  static const TextStyle textSpanPartOneStyle = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primaryclr);
+
+  static const TextStyle aiTxtStyle = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.aiClr);
+
+  
 }

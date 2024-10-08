@@ -78,5 +78,8 @@ class AppAssets {
   static const String manageTempIcon = 'assets/images/manage_template.png';
   static const String searchIcon = 'assets/images/search_icon.svg';
   static const String questionIcon = 'assets/images/Ask_Question.png';
+  static const String menuIcon = 'assets/images/menu_icon.svg';
+  static const String profileIcon = 'assets/images/profile.png';
+  static const String arrowIconAt45 = 'assets/images/arrow_at_45.svg';
   
 }
