@@ -185,6 +185,26 @@ class AppStrings {
   static const String crntSubscripPlan = "Current Subscription Plan";
   static const String resetDate = "Reset Date";
   static const String upgradePlan = "Upgrade Plan";
+  static const String viewPlanes = "View Plans";
+  static const String viewPlanBelowText = "Unlock all the power of this mobile tool and enjoy digital experience like never before!";
+  static const String annual = "Annual";
+  static const String first30days = "First 30 days free - Then \$999/Year";
+  static const String monthly = "Monthly";
+  static const String first7days = "First 7 days free - Then \$99/Month";
+  static const String start7DayTrial = "Start 7-day free trial";
+  static const String byPlacingOrder = "By placing this order, you agree to the ";
+  static const String termsOfService = "Terms of Service";
+  static const String and = " and ";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String subscriptionAutomatically = ". Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period.";
+  static const String wrtPrompt = "Write Prompt";
+  static const String advance = "Advance";
+  static const String imgQuality = "Image Quality";
+  static const String enter  = "Enter";
+  static const String imgResolution = "Image Resolution";
+  static const String xdl = "XDL";
+  static const String dal = "Dall-E  3";
+  
   
 
   

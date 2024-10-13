@@ -60,7 +60,7 @@ class _TextGenerationScreenState extends State<TextGenerationScreen> {
           children: [
           const  CustomListTile(
               leadingIcon: AppAssets.botIcon,
-              titile: AppStrings.myChatBot,
+              title: AppStrings.myChatBot,
               trailingIcon: Icons.arrow_forward_ios_outlined,
             ),
             const SizedBox(
@@ -68,11 +68,11 @@ class _TextGenerationScreenState extends State<TextGenerationScreen> {
             ),
             CustomListTile(
               leadingIcon: AppAssets.ieltsIcon,
-              titile: AppStrings.ieltsTest,
+              title: AppStrings.ieltsTest,
               trailingIcon: Icons.arrow_forward_ios_outlined,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const IeltsTestScreen()));
-              },
+              }, 
             ),
             const SizedBox(
               height: 20,

@@ -121,7 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
-                        color: AppColors.fourthClr,
+                        color: AppColors.blueClr,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: CustomIconButton(

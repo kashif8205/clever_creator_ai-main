@@ -3,7 +3,7 @@ import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/views/screens/text_generation_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_container.dart';
-import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class DocumentSummarizationScreen extends StatefulWidget {
@@ -32,7 +32,7 @@ class _DocumentSummarizationScreenState
           text: AppStrings.uploadPDfTxt,
          ),
             const SizedBox(height: 30),
-            CustomElevatedBtn(
+            PrimaryBtn(
               eltBtnSize: const Size(double.infinity, 58),
               onPress: () {
                 Navigator.push(

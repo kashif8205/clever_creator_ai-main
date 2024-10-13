@@ -4,7 +4,7 @@ import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/views/screens/text_generation_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_container.dart';
-import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:clever_creator_ai/widgets/custom_voice_container.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +71,7 @@ class _AddnewScreenState extends State<AddnewScreen> {
             const SizedBox(
               height: 60,
             ),
-            CustomElevatedBtn(
+            PrimaryBtn(
               eltBtnSize: const Size(double.infinity, 58),
               onPress: () {
                 Navigator.push(
@@ -79,7 +79,7 @@ class _AddnewScreenState extends State<AddnewScreen> {
                     MaterialPageRoute(
                         builder: (context) => const TextGenerationScreen()));
               },
-              backgroundColor: AppColors.fourthClr,
+              backgroundColor: AppColors.blueClr,
               elBtnTxt: AppStrings.generateBtn,
               elevatedtBtnTxtStyle: AppTextStyles.eltBtnTxtStyle,
             ),

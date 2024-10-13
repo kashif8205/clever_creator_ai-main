@@ -29,13 +29,13 @@ class _IeltsTestScreenState extends State<IeltsTestScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AiTutorScreen()));
             },
             child: const CustomListTile(
-              titile: AppStrings.presetQuestions,
+              title: AppStrings.presetQuestions,
               trailingIcon: Icons.arrow_forward_ios_outlined,
             ),
           ),
            const SizedBox(height: 10,),
            const CustomListTile(
-            titile: AppStrings.createQuestions,
+            title: AppStrings.createQuestions,
             trailingIcon: Icons.arrow_forward_ios_outlined,
           )
           ],

@@ -1,6 +1,6 @@
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:clever_creator_ai/widgets/custom_form_field.dart';
 import 'package:clever_creator_ai/widgets/textspan_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +106,7 @@ class _StatsSubscriptionScreenState extends State<StatsSubscriptionScreen> {
               SizedBox(
                 height: 20,
               ),
-              CustomElevatedBtn(elBtnTxt: AppStrings.upgradePlan)
+              PrimaryBtn(elBtnTxt: AppStrings.upgradePlan)
             ],
           ),
         ),

@@ -3,7 +3,7 @@ import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/views/screens/img_prompt2.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
-import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
 import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                 height: 5,
               ),
               const CustomListTile(
-                titile: AppStrings.selectModel,
+                title: AppStrings.selectModel,
                 style: AppTextStyles.secondaryTxtStyle,
               ),
               const SizedBox(
@@ -50,7 +50,7 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                 height: 5,
               ),
               const CustomListTile(
-                titile: AppStrings.english,
+                title: AppStrings.english,
                 style: AppTextStyles.secondaryTxtStyle,
               ),
               const SizedBox(
@@ -82,9 +82,9 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
               const SizedBox(
                 height: 50,
               ),
-              CustomElevatedBtn(
+              PrimaryBtn(
                   eltBtnSize: const Size(double.infinity, 58),
-                  backgroundColor: AppColors.fourthClr,
+                  backgroundColor: AppColors.blueClr,
                   foregroundColor: AppColors.secondryClr,
                   onPress: () {
                     Navigator.push(

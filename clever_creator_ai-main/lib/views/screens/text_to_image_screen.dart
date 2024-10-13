@@ -90,7 +90,7 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
                 AppStrings.imgLableTxt,
                 style: AppTextStyles.imgLableTxtStyle,
               ),
-              SizedBox(
+             const SizedBox(
                 height: 10,
               ),
               Image.asset(AppAssets.babyImg),

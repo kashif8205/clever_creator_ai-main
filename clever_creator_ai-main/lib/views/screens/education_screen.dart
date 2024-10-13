@@ -28,12 +28,12 @@ class _EducationScreenState extends State<EducationScreen> {
               SizedBox(height: 10,),
             CustomListTile(
               leadingIcon: AppAssets.questionIcon,
-              titile: AppStrings.whatIsFormula,
+              title: AppStrings.whatIsFormula,
             ),
             SizedBox(height: 10,),
             CustomListTile(
               leadingIcon: AppAssets.questionIcon,
-              titile: AppStrings.whatIsFormula,
+              title: AppStrings.whatIsFormula,
             ),
             SizedBox(height: 10,),
             CustomTextField(
@@ -45,12 +45,12 @@ class _EducationScreenState extends State<EducationScreen> {
              SizedBox(height: 10,),
             CustomListTile(
               leadingIcon: AppAssets.questionIcon,
-              titile: AppStrings.whatForceCauses,
+              title: AppStrings.whatForceCauses,
             ),
             SizedBox(height: 10,),
             CustomListTile(
               leadingIcon: AppAssets.questionIcon,
-              titile: AppStrings.chemicalSymbolOfWater,
+              title: AppStrings.chemicalSymbolOfWater,
             ),
             SizedBox(height: 10,),
             CustomTextField(

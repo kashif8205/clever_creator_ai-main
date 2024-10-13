@@ -4,7 +4,7 @@ import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/widgets/page_view_ui.dart';
 import 'package:clever_creator_ai/views/screens/login_screen.dart';
-import 'package:clever_creator_ai/widgets/custom_elbtn.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -38,7 +38,7 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
               const SizedBox(
                 height: 20,
               ),
-              CustomElevatedBtn(
+              PrimaryBtn(
                 eltBtnSize: const Size(61, 33),
                 elBtnTxt: AppStrings.skip,
                 elevatedtBtnTxtStyle: AppTextStyles.skipEltBtnStyle,
@@ -79,7 +79,7 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
               ),
               Center(
                 child: FloatingActionButton(
-                  backgroundColor: AppColors.fourthClr,
+                  backgroundColor: AppColors.blueClr,
                   onPressed: () => controller.nextPage(
                       duration: const Duration(microseconds: 500),
                       curve: Curves.easeInOut),
@@ -106,7 +106,7 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
                 effect: const WormEffect(
                     spacing: 10,
                     dotColor: AppColors.thirdClr,
-                    activeDotColor: AppColors.fourthClr,
+                    activeDotColor: AppColors.blueClr,
                     dotWidth: 5,
                     dotHeight: 5),
                 onDotClicked: (index) => controller.animateToPage(index,

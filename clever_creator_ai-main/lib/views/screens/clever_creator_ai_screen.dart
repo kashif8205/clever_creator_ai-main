@@ -3,7 +3,16 @@ import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/models/creater_model.dart';
+import 'package:clever_creator_ai/views/screens/ai_tutor_screen.dart';
+import 'package:clever_creator_ai/views/screens/custom_template_screen.dart';
+import 'package:clever_creator_ai/views/screens/document_summarization_screen.dart';
+import 'package:clever_creator_ai/views/screens/ielts_screen.dart';
 import 'package:clever_creator_ai/views/screens/prompt_generator_screen.dart';
+import 'package:clever_creator_ai/views/screens/speech_to_text_screen.dart';
+import 'package:clever_creator_ai/views/screens/text_generation_screen.dart';
+import 'package:clever_creator_ai/views/screens/text_to_image_screen.dart';
+import 'package:clever_creator_ai/views/screens/text_to_speech_screen.dart';
+import 'package:clever_creator_ai/views/screens/text_to_video_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +67,20 @@ class CleverCreatorAiScreen extends StatefulWidget {
 }
 
 class _CleverCreatorAiScreenState extends State<CleverCreatorAiScreen> {
+  // Map of screens to navigate to
+  final List<Widget> _screens = [
+    const TextGenerationScreen(), // Index 0
+    const TextToImageScreen(), // Index 1
+    const AiTutorScreen(), // Index 2
+    const SpeechToTextScreen(),
+    const TextToSpeechScreen(),
+    const CustomTemplateScreen(),
+    const TextToVideoScreen(),
+    const IeltsTestScreen(),
+    const PromptGeneratorScreen(),
+    const DocumentSummarizationScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,42 +105,45 @@ class _CleverCreatorAiScreenState extends State<CleverCreatorAiScreen> {
                   final item = aiItems[index];
                   return InkWell(
                     onTap: () {
+                      // Navigate to the corresponding screen based on the index
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const PromptGeneratorScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _screens[index],
+                        ),
+                      );
                     },
                     child: Card(
-                        color: AppColors.textfieldClr,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: const BoxDecoration(
-                                    color: AppColors.primaryclr,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(25))),
-                                child: Image.asset(
-                                  item.image,
-                                ),
+                      color: AppColors.textfieldClr,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: const BoxDecoration(
+                                  color: AppColors.primaryclr,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              child: Image.asset(
+                                item.image,
                               ),
-                              Text(
-                                item.text,
-                                style: AppTextStyles.cardTxtStyle,
-                              ),
-                              Text(
-                                item.descriptionTxt,
-                                style: AppTextStyles.cardDescStyle,
-                              ),
-                            ],
-                          ),
-                        )),
+                            ),
+                            Text(
+                              item.text,
+                              style: AppTextStyles.cardTxtStyle,
+                            ),
+                            Text(
+                              item.descriptionTxt,
+                              style: AppTextStyles.cardDescStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   );
                 },
               ),

@@ -15,7 +15,7 @@ final VoidCallback? onPressed;
       height: 61,
       width: 61,
       decoration: BoxDecoration(
-        color: AppColors.fourthClr,
+        color: AppColors.blueClr,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Center(

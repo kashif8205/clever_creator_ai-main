@@ -1,35 +1,17 @@
+import 'package:clever_creator_ai/app_utils/app_colors.dart';
+import 'package:clever_creator_ai/app_utils/app_strings.dart';
+import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+class DropdownScreen extends StatefulWidget {
+  const DropdownScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'DropdownButton2 Demo',
-      home: MyHomePage(),
-    );
-  }
+  State<DropdownScreen> createState() => _DropdownScreenState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final List<String> items = [
-    'Item1',
-    'Item2',
-    'Item3',
-    'Item4',
-    'Item5',
-    'Item6',
-    'Item7',
-    'Item8',
-  ];
+class _DropdownScreenState extends State<DropdownScreen> {
   String? selectedValue;
 
   @override
@@ -38,44 +20,89 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: DropdownButtonHideUnderline(
           child: DropdownButton2<String>(
+
             isExpanded: true,
-            hint: const Row(
-              children: [
-                Icon(
-                  Icons.list,
-                  size: 16,
-                  color: Colors.yellow,
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Expanded(
-                  child: Text(
-                    'Select Item',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.yellow,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ],
+            hint: const Text(
+              AppStrings.advance,
+              style: AppTextStyles.ddTxtStyle,
+              overflow: TextOverflow.ellipsis,
             ),
-            items: items
-                .map((String item) => DropdownMenuItem<String>(
-                      value: item,
-                      child: Text(
-                        item,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+            items: [
+              DropdownMenuItem<String>(
+
+                value: '',
+                child: SizedBox(
+                  height: 150, // Adjust height to make room for more fields
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Image Quality",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
                           color: Colors.white,
                         ),
-                        overflow: TextOverflow.ellipsis,
                       ),
-                    ))
-                .toList(),
+                      const SizedBox(height: 5),
+                      SizedBox(
+                        height: 25,
+                        width: 79,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Colors.grey,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      const Text("Hello"),
+                      SizedBox(
+                        height: 25,
+                        width: 79,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Colors.grey,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // New TextFormField added here
+                      const SizedBox(height: 5),
+                      const Text("Another Field"),
+                      SizedBox(
+                        height: 25,
+                        width: 79,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Colors.grey,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
             value: selectedValue,
             onChanged: (String? value) {
               setState(() {
@@ -83,15 +110,15 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
             buttonStyleData: ButtonStyleData(
-              height: 50,
-              width: 160,
-              padding: const EdgeInsets.only(left: 14, right: 14),
+              height: 44,
+              width: 110,
+              padding: const EdgeInsets.only(left: 10, right: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
-                  color: Colors.black26,
+                  color: AppColors.blueClr,
+                  width: 2,
                 ),
-                color: Colors.redAccent,
               ),
               elevation: 2,
             ),
@@ -100,26 +127,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 Icons.arrow_forward_ios_outlined,
               ),
               iconSize: 14,
-              iconEnabledColor: Colors.yellow,
               iconDisabledColor: Colors.grey,
             ),
             dropdownStyleData: DropdownStyleData(
-              maxHeight: 200,
-              width: 200,
+              // maxHeight: 105, // Increase to allow space for scrollable content
+              // width: 110, // Adjust width for better fitting
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
-                color: Colors.redAccent,
+                color: Colors.grey[600],
               ),
-              offset: const Offset(-20, 0),
+              offset: const Offset(0, -10),
               scrollbarTheme: ScrollbarThemeData(
-                radius: const Radius.circular(40),
+                radius: const Radius.circular(10),
                 thickness: WidgetStateProperty.all<double>(6),
                 thumbVisibility: WidgetStateProperty.all<bool>(true),
               ),
-            ),
-            menuItemStyleData: const MenuItemStyleData(
-              height: 40,
-              padding: EdgeInsets.only(left: 14, right: 14),
             ),
           ),
         ),

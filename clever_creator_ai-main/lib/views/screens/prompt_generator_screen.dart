@@ -25,21 +25,21 @@ class _PromptGeneratorScreenState extends State<PromptGeneratorScreen> {
           children: [
             CustomListTile(
               leadingIcon: AppAssets.imagePg,
-              titile: AppStrings.promptGenerator,
+              title: AppStrings.promptGenerator,
               trailingIcon: Icons.arrow_forward_ios_outlined,
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const ImagePromptGenScreen()));
-              },
+              }, 
             ),
             const SizedBox(
               height: 10,
             ),
             const CustomListTile(
               leadingIcon: AppAssets.contentPg,
-              titile: AppStrings.contentPromptgenTxt,
+              title: AppStrings.contentPromptgenTxt,
               trailingIcon: Icons.arrow_forward_ios_outlined,
             ),
           ],

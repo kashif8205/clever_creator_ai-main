@@ -81,5 +81,6 @@ class AppAssets {
   static const String menuIcon = 'assets/images/menu_icon.svg';
   static const String profileIcon = 'assets/images/profile.png';
   static const String arrowIconAt45 = 'assets/images/arrow_at_45.svg';
+  static const String viewPlanIcon = 'assets/images/view_plans.png';
   
 }

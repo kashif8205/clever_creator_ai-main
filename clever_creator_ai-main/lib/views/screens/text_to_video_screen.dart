@@ -20,9 +20,7 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-      'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
-    )..initialize().then((_) {
+    _controller = VideoPlayerController.networkUrl('https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4' as Uri)..initialize().then((_) {
         setState(() {}); // Update the UI when the video is ready
       });
   }
@@ -112,7 +110,7 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
                             child: VideoPlayer(_controller),
                           ),
                         )
-                      : CircularProgressIndicator(),
+                      :const CircularProgressIndicator(),
                   if (_controller.value.isInitialized)
                     IconButton(
                       icon: Icon(

@@ -47,11 +47,11 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
             const SizedBox(
               height: 50,
             ),
-            VoiceRecoderContainer(),
+           const VoiceRecoderContainer(),
             const SizedBox(
               height: 40,
             ),
-            Text(
+          const  Text(
               AppStrings.timerTxt,
               style: AppTextStyles.screenSubTitleStyle,
             ),

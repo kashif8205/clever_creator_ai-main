@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key, 
-    this.titile, 
+    this.title, 
     this.leadingIcon, 
     this.trailingIcon,
     this.onTap,
-    this.style = AppTextStyles.primaryTxtStyle,
+    this.style = AppTextStyles.primaryTxtStyle, 
   });
-
-  final String? titile;
+  final String? title;
   final String? leadingIcon; 
   final IconData? trailingIcon;
   final VoidCallback? onTap;
@@ -26,7 +25,7 @@ class CustomListTile extends StatelessWidget {
         leading: leadingIcon != null 
           ? Image.asset(leadingIcon!) 
           : null, 
-        title: Text(titile ?? '', style: style),
+        title: Text(title ?? '', style: style),
         tileColor: AppColors.textfieldClr,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         trailing: Icon(trailingIcon,size: 15,),

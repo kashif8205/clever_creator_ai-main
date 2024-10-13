@@ -14,13 +14,14 @@ class AppTextStyles {
   static const TextStyle skipEltBtnStyle = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: AppColors.primaryclr
+    color: AppColors.elTxtClr
   );
 
   static const TextStyle screenTitleStyle = TextStyle(
     fontSize: 42,
     fontWeight: FontWeight.w700,
   );
+
    static const TextStyle subheadingStyle = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w700,
@@ -30,7 +31,7 @@ class AppTextStyles {
       fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.secondryClr);
       
   static const TextStyle forgetBtnTextStyle = TextStyle(
-      fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.fourthClr);
+      fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.blueClr);
 
   static const TextStyle signInTxtStyle = TextStyle(
       fontSize: 24, fontWeight: FontWeight.w400, color: AppColors.primaryclr);
@@ -79,6 +80,28 @@ class AppTextStyles {
 
   static const TextStyle aiTxtStyle = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.aiClr);
-
   
+  static const TextStyle viewPlanTxtStyle = TextStyle(
+      fontSize: 32, fontWeight: FontWeight.w700, color: AppColors.primaryclr);
+
+  static const TextStyle viewPlanBelowTxtStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.viewPlanBelowTextclr);
+
+  static const TextStyle annualMonthlyTxtStyle = TextStyle(
+      fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.viewPlanBelowTextclr);
+
+  static const TextStyle annualMonthlyLabelTxtStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.viewPlanBelowTextclr);
+  
+  static const TextStyle freeTrialStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w500, color: AppColors.freeTrialTxtClr);
+
+  static const TextStyle ddTxtStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.blueClr);
+
+  static const TextStyle schoolClgUniTxtStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black);
+
+  static const TextStyle secondaryBtnStyle = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.primaryclr);
 }
