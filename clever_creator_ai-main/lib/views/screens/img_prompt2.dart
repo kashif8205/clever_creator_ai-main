@@ -18,7 +18,7 @@ class _ImgPrompt2ScreenState extends State<ImgPrompt2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        text: AppStrings.promptGenerator,
+        text: AppStrings.imagePromptGenerator,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

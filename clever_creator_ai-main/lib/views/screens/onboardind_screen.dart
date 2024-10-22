@@ -42,7 +42,7 @@ class _OnboardOneScreenState extends State<OnboardOneScreen> {
                 eltBtnSize: const Size(61, 33),
                 elBtnTxt: AppStrings.skip,
                 elevatedtBtnTxtStyle: AppTextStyles.skipEltBtnStyle,
-                onPress: () {
+                onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(

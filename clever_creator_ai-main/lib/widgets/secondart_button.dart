@@ -25,7 +25,7 @@ class SecondaryBtn extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         side: const BorderSide(
-          width: 2,
+          width: 1,
           color: AppColors.primaryclr
         ),
         backgroundColor: backgroundColor,

@@ -2,46 +2,44 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/views/screens/create_account_screen.dart';
+import 'package:clever_creator_ai/views/screens/forget_password_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class CreateAccountScreen extends StatefulWidget {
+  const CreateAccountScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CustomIconButton(
-          iconButton: AppAssets.bwdicon,
-          onPressed: () {
-            Navigator.of(context).maybePop();
-          },
-        ),
-      ),
+          leading: CustomIconButton(
+        iconButton: AppAssets.bwdicon,
+        onPressed: () {
+          Navigator.of(context).maybePop();
+        },
+      )),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction, 
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    AppStrings.loginTxt,
+                    AppStrings.createAccText,
                     style: AppTextStyles.screenTitleStyle,
                   ),
                   const SizedBox(
@@ -97,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(
                     height: 20,
@@ -106,6 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     prefixIcon: AppAssets.lock,
                     hintText: AppStrings.password,
                     suffixIcon: AppAssets.eye,
+                    keyboardType: TextInputType.visiblePassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return AppStrings.requiredField;
@@ -115,18 +114,30 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    prefixIcon: AppAssets.lock,
+                    hintText: AppStrings.confPwd,
+                    suffixIcon: AppAssets.eye,
                     keyboardType: TextInputType.visiblePassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return AppStrings.requiredField;
+                      }
+                      if (value.length != 8) {
+                        return AppStrings.pwdLimit;
+                      }
+                      return null;
+                    },
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      CustomTextButton(
-                        onPressed: () {},
-                        text: AppStrings.forgetBtnTxt,
-                        textStyle: AppTextStyles.forgetBtnTextStyle,
-                      ),
-                    ],
+                  const SizedBox(
+                    height: 10,
                   ),
+                  const Text(AppStrings.conPwdExp,
+                      style: AppTextStyles.secondaryTxtStyle),
                   const SizedBox(
                     height: 40,
                   ),
@@ -134,14 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomTextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CreateAccountScreen()));
-                          },
-                          text: AppStrings.singIn),
+                          onPressed: () {}, text: AppStrings.register),
                       Container(
                         height: 50,
                         width: 50,
@@ -157,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const CreateAccountScreen()));
+                                          const ForgetPasswordScreen()));
                             }
                           },
                         ),

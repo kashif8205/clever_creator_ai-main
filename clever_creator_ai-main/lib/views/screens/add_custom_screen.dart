@@ -1,5 +1,6 @@
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/manage_templates_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
 import 'package:clever_creator_ai/widgets/primary_button.dart';
@@ -14,91 +15,143 @@ class AddCustomScreen extends StatefulWidget {
 }
 
 class _AddCustomScreenState extends State<AddCustomScreen> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(text: AppStrings.customCategories),
+    return Scaffold(
+      appBar: const CustomAppBar(text: AppStrings.addCustom),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppStrings.basicInfo,
-                style: AppTextStyles.primaryTxtStyle,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              CustomTextField(
-                hintText: AppStrings.category,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hintText: AppStrings.enterIcon,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomDropdownButton(
-                items: ['Item 1', 'Item 3'],
-                hintText: AppStrings.selectCategory,
-                textStyle: AppTextStyles.secondaryTxtStyle,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hintText: AppStrings.description,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                AppStrings.inputInfo,
-                style: AppTextStyles.primaryTxtStyle,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomDropdownButton(
-                items: ['Item 1', 'Item 3'],
-                hintText: AppStrings.inputField,
-                textStyle: AppTextStyles.secondaryTxtStyle,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hintText: AppStrings.inputName,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hintText: AppStrings.inputLabel,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                AppStrings.customPrompt,
-                style: AppTextStyles.primaryTxtStyle,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hintText: AppStrings.enterMsg,
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              PrimaryBtn(elBtnTxt: AppStrings.save),
-            ],
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  AppStrings.basicInfo,
+                  style: AppTextStyles.primaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.category,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.enterIcon,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const CustomDropdownButton(
+                  items: ['Item 1', 'Item 3'],
+                  hintText: AppStrings.selectCategory,
+                  textStyle: AppTextStyles.secondaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.description,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  AppStrings.inputInfo,
+                  style: AppTextStyles.primaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const CustomDropdownButton(
+                  items: ['Item 1', 'Item 3'],
+                  hintText: AppStrings.inputField,
+                  textStyle: AppTextStyles.secondaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.inputName,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.inputLabel,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  AppStrings.customPrompt,
+                  style: AppTextStyles.primaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.enterMsg,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                PrimaryBtn(
+                  elBtnTxt: AppStrings.save,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ManageTemplatesScreen()));
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

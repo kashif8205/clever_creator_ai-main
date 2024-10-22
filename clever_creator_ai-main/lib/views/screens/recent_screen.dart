@@ -1,7 +1,9 @@
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/profile_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class RecentScreen extends StatefulWidget {
@@ -12,44 +14,125 @@ class RecentScreen extends StatefulWidget {
 }
 
 class _RecentScreenState extends State<RecentScreen> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(text: AppStrings.recent),
+    return Scaffold(
+      appBar: const CustomAppBar(text: AppStrings.recent),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(AppStrings.textGeneration,style: AppTextStyles.secondaryTxtStyle,),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-              SizedBox(height: 40,),
-              Text(AppStrings.textToImage,style: AppTextStyles.secondaryTxtStyle,),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-              SizedBox(height: 10,),
-              CustomTextField(
-               hintText: AppStrings.pleaseWriteLetter,
-              ),
-            ],
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  AppStrings.textGeneration,
+                  style: AppTextStyles.secondaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const Text(
+                  AppStrings.textToImage,
+                  style: AppTextStyles.secondaryTxtStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                  hintText: AppStrings.pleaseWriteLetter,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                PrimaryBtn(
+                  elBtnTxt: AppStrings.next,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProfileScreen()));
+                    }
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -1,7 +1,9 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
+import 'package:clever_creator_ai/views/screens/custom_categories_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomTemplateScreen extends StatefulWidget {
@@ -14,35 +16,48 @@ class CustomTemplateScreen extends StatefulWidget {
 class _CustomTemplateScreenState extends State<CustomTemplateScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(text: AppStrings.customTemplate),
+    return Scaffold(
+      appBar: const CustomAppBar(text: AppStrings.customTemplate),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            CustomDropdownButton(
+            const CustomDropdownButton(
               items: ['Item 1', 'Item 3'],
               hintText: AppStrings.categorize,
               leadingIcon: AppAssets.categoriesIcon,
-             
             ),
-             SizedBox(height: 10,),
-             CustomDropdownButton(
+            const SizedBox(
+              height: 10,
+            ),
+            const CustomDropdownButton(
               items: ['Item 1', 'Item 3'],
               hintText: AppStrings.addTemplate,
               leadingIcon: AppAssets.addIcon,
-             
             ),
-            SizedBox(height: 10,),
-            CustomDropdownButton(
+            const SizedBox(
+              height: 10,
+            ),
+            const CustomDropdownButton(
               items: ['Item 1', 'Item 3'],
               hintText: AppStrings.manageTemplate,
               leadingIcon: AppAssets.manageTempIcon,
-             
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            PrimaryBtn(
+              elBtnTxt: AppStrings.next,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CustomCategoriesScreen()));
+              },
+            )
           ],
         ),
       ),

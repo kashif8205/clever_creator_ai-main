@@ -30,6 +30,7 @@ class _UpgradePlanScreenState extends State<UpgradePlanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 100,
         title: const CustomColumnAppBar(
           text: AppStrings.upgradePlan,
@@ -232,7 +233,7 @@ class _UpgradePlanScreenState extends State<UpgradePlanScreen> {
                 backgroundColor: AppColors.viewPlanBelowTextclr,
                 elevatedtBtnTxtStyle: AppTextStyles.freeTrialStyle,
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
-                onPress: () {
+                onPressed: () {
                   // print("hello");
                 },
               ),

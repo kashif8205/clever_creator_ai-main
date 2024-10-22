@@ -1,8 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
-import 'package:clever_creator_ai/views/screens/ai_tutor_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
-import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
+import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class IeltsTestScreen extends StatefulWidget {
@@ -15,29 +14,22 @@ class IeltsTestScreen extends StatefulWidget {
 class _IeltsTestScreenState extends State<IeltsTestScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:  const CustomAppBar(
+    return const Scaffold(
+      appBar:   CustomAppBar(
         text: AppStrings.ieltsTest,
         icon: AppAssets.share,
       ),
       body: Padding(
-        padding:  const EdgeInsets.only(left: 20, right: 20, top: 20),
+        padding:   EdgeInsets.only(left: 20, right: 20, top: 20),
         child: Column(
           children: [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const AiTutorScreen()));
-            },
-            child: const CustomListTile(
-              title: AppStrings.presetQuestions,
-              trailingIcon: Icons.arrow_forward_ios_outlined,
-            ),
-          ),
-           const SizedBox(height: 10,),
-           const CustomListTile(
-            title: AppStrings.createQuestions,
-            trailingIcon: Icons.arrow_forward_ios_outlined,
-          )
+           CustomDropdownButton(
+            items: ["1"], 
+            hintText: AppStrings.presetQuestions),
+            SizedBox(height: 10,),
+           CustomDropdownButton(
+            items: ["2"], 
+            hintText: AppStrings.createQuestions)
           ],
         ),
       ),

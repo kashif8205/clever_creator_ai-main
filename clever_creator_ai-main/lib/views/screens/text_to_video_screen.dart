@@ -1,11 +1,12 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/image_generation_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:clever_creator_ai/widgets/rowfield_button.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TextToVideoScreen extends StatefulWidget {
   const TextToVideoScreen({super.key});
@@ -15,19 +16,27 @@ class TextToVideoScreen extends StatefulWidget {
 }
 
 class _TextToVideoScreenState extends State<TextToVideoScreen> {
-  late VideoPlayerController _controller;
+  late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl('https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4' as Uri)..initialize().then((_) {
-        setState(() {}); // Update the UI when the video is ready
-      });
+
+    // Extract video ID from YouTube URL and initialize the controller
+    _youtubeController = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(
+        'https://youtu.be/YnxP-1AtqUM?si=pAkNo2PSppMhUXI4',
+      )!,
+      flags: const YoutubePlayerFlags(
+        autoPlay: false, // Change to true if you want auto-play
+        mute: false,
+      ),
+    );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _youtubeController.dispose();
     super.dispose();
   }
 
@@ -45,9 +54,7 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
               Row(
                 children: [
                   Image.asset(AppAssets.avatar),
-                  const SizedBox(
-                    width: 10,
-                  ),
+                  const SizedBox(width: 10),
                   const Text(
                     AppStrings.you,
                     style: AppTextStyles.imgLableTxtStyle,
@@ -98,36 +105,17 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
                 style: AppTextStyles.imgLableTxtStyle,
               ),
               const SizedBox(height: 10),
-              // Video player with rounded edges and play button overlay
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  _controller.value.isInitialized
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(16.0), // Set your desired border radius
-                          child: AspectRatio(
-                            aspectRatio: _controller.value.aspectRatio,
-                            child: VideoPlayer(_controller),
-                          ),
-                        )
-                      :const CircularProgressIndicator(),
-                  if (_controller.value.isInitialized)
-                    IconButton(
-                      icon: Icon(
-                        _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                        size: 50,
-                        color: Colors.white.withOpacity(0.7),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _controller.value.isPlaying
-                              ? _controller.pause()
-                              : _controller.play();
-                        });
-                      },
-                    ),
-                ],
+
+              // YouTube player with rounded edges
+              YoutubePlayer(
+                controller: _youtubeController,
+                showVideoProgressIndicator: true,
+                progressIndicatorColor: Colors.red,
+                onReady: () {
+                  // print('YouTube Player is ready.');
+                },
               ),
+
               const SizedBox(height: 10),
               const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -158,7 +146,7 @@ class _TextToVideoScreenState extends State<TextToVideoScreen> {
               CustomFieldAndButton(
                 icon: AppAssets.imageUploadIcon,
                 onPressed: () {
-                  print('Hello');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ImageGenerationScreen()));
                 },
               ),
             ],

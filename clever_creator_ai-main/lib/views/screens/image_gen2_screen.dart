@@ -1,27 +1,29 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/views/screens/education_screen.dart';
+import 'package:clever_creator_ai/views/screens/custom_template_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:clever_creator_ai/widgets/rowfield_button.dart';
 import 'package:flutter/material.dart';
 
-class ChatbotScreen extends StatefulWidget {
-  const ChatbotScreen({super.key});
+class ImageGen2Screen extends StatefulWidget {
+  const ImageGen2Screen({super.key});
 
   @override
-  State<ChatbotScreen> createState() => _ChatbotScreenState();
+  State<ImageGen2Screen> createState() => _TextToImageScreenState();
 }
 
-class _ChatbotScreenState extends State<ChatbotScreen> {
+class _TextToImageScreenState extends State<ImageGen2Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(text: AppStrings.chatBot),
+      appBar: const CustomAppBar(
+        text: AppStrings.imageGenerator,
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
               Row(
@@ -31,7 +33,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     width: 10,
                   ),
                   const Text(
-                    AppStrings.you,
+                    AppStrings.yourPrompt,
                     style: AppTextStyles.imgLableTxtStyle,
                   ),
                 ],
@@ -40,7 +42,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 height: 10,
               ),
               const Text(
-                AppStrings.storyTxt,
+                AppStrings.beautifulStoryTxt,
                 style: AppTextStyles.processOfPlantstyle,
                 textAlign: TextAlign.start,
               ),
@@ -76,26 +78,30 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   const SizedBox(
                     width: 10,
                   ),
-               const Text(AppStrings.chatBot,
-                style: AppTextStyles.imgLableTxtStyle,)
+                  const Text(
+                    AppStrings.imageGenerator,
+                    style: AppTextStyles.imgLableTxtStyle,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
-             const Text(AppStrings.chatBotScreenDescription,
-             style: AppTextStyles.imgLableTxtStyle,
-             ),
-              const SizedBox(
-                height: 20,
+              const Text(
+                AppStrings.imgLableTxt,
+                style: AppTextStyles.imgLableTxtStyle,
               ),
+             const SizedBox(
+                height: 10,
+              ),
+              Image.asset(AppAssets.babyImg),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomRowButton(
-                    icon: AppAssets.copyIcon,
-                    text: AppStrings.copy,
+                    icon: AppAssets.downloadIcon,
+                    text: AppStrings.download,
                   ),
                   CustomRowButton(
                     icon: AppAssets.shareIcon,
@@ -107,25 +113,27 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   ),
                 ],
               ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomRowButton(
+                    icon: AppAssets.editIcon,
+                    text: AppStrings.edit,
+                  ),
+                  CustomRowButton(
+                    icon: AppAssets.likeIcon,
+                    text: AppStrings.like,
+                  ),
+                ],
+              ),
               const SizedBox(
-                height: 20,
-              ),
-              const Divider(
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              const Divider(
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 30,
+                height: 10,
               ),
               CustomFieldAndButton(
-                icon: AppAssets.documentIcon,
+                icon: AppAssets.imageUploadIcon,
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const EducationScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomTemplateScreen()));
                 },
               ),
             ],

@@ -7,20 +7,20 @@ class PrimaryBtn extends StatelessWidget {
     super.key,
     this.backgroundColor = AppColors.blueClr,
     this.foregroundColor = AppColors.primaryclr,
-    this.onPress,
+    this.onPressed,
     required this.elBtnTxt,
     this.elevatedtBtnTxtStyle = AppTextStyles.eltBtnTxtStyle,
     this.eltBtnSize = const Size(353, 58),
-    this.borderRadius = const BorderRadius.all(Radius.circular(100)), // Optional border radius
+    this.borderRadius = const BorderRadius.all(Radius.circular(100)), 
   });
 
   final Color backgroundColor;
   final Color foregroundColor;
-  final VoidCallback? onPress;
+  final VoidCallback? onPressed;
   final String elBtnTxt;
   final TextStyle elevatedtBtnTxtStyle;
   final Size eltBtnSize;
-  final BorderRadius borderRadius; // New optional borderRadius parameter
+  final BorderRadius borderRadius; 
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +31,11 @@ class PrimaryBtn extends StatelessWidget {
         minimumSize: WidgetStateProperty.all<Size>(eltBtnSize),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: borderRadius, // Apply the optional border radius here
+            borderRadius: borderRadius, 
           ),
         ),
       ),
-      onPressed: onPress,
+      onPressed: onPressed,
       child: Text(
         elBtnTxt,
         style: elevatedtBtnTxtStyle,

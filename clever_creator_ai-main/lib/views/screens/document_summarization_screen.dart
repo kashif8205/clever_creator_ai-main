@@ -34,7 +34,7 @@ class _DocumentSummarizationScreenState
             const SizedBox(height: 30),
             PrimaryBtn(
               eltBtnSize: const Size(double.infinity, 58),
-              onPress: () {
+              onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(

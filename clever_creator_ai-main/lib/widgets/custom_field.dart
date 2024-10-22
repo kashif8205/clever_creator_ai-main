@@ -11,7 +11,9 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.textStyle = AppTextStyles.secondaryTxtStyle,
     this.borderSide = BorderSide.none,
-    this.borderRadius,
+    this.borderRadius, 
+    this.validator,
+    this.keyboardType
   });
 
   final String? hintText;
@@ -20,6 +22,8 @@ class CustomTextField extends StatelessWidget {
   final TextStyle? textStyle;
   final BorderSide? borderSide;
   final BorderRadius? borderRadius;
+  final String? Function(String?)? validator; 
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,8 @@ class CustomTextField extends StatelessWidget {
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
       ),
+      keyboardType:keyboardType,
+      validator: validator,
     );
   }
 }

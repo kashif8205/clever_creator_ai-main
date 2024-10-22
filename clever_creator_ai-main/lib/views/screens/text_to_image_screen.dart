@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/text_to_speech_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:clever_creator_ai/widgets/rowfield_button.dart';
@@ -132,8 +133,8 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
               CustomFieldAndButton(
                 icon: AppAssets.imageUploadIcon,
                 onPressed: () {
-                  print('Hello');
-                },
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const TextToSpeechScreen()));
+              },
               ),
             ],
           ),

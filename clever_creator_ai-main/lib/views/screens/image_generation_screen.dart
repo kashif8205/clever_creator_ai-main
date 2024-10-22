@@ -2,8 +2,10 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/image_gen2_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
+import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:clever_creator_ai/widgets/secondart_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,100 +18,126 @@ class ImageGenerationScreen extends StatefulWidget {
 }
 
 class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
+  final _formKey = GlobalKey<FormState>();
   bool _isDropdownOpen = false;
-  bool _istapped = false;
+  // bool _istapped = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(text: AppStrings.imageGenerator),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              AppStrings.wrtPrompt,
-              style: AppTextStyles.primaryTxtStyle,
-            ),
-            const SizedBox(height: 10),
-            const CustomTextField(
-              hintText: AppStrings.clickToUploadImg,
-              suffixIcon: AppAssets.imageUploadIcon,
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Form(
+          key: _formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               const SecondaryBtn(
-                text: AppStrings.xdl,
-               ),
-                const SecondaryBtn(
-                text: AppStrings.dal,
-               ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isDropdownOpen = !_isDropdownOpen;
-                    });
-                  },
-                  child: 
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppColors.blueClr, width: 2),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text(AppStrings.advance,
-                            style: AppTextStyles.ddTxtStyle),
-                        const SizedBox(width: 10),
-                        SvgPicture.asset(_isDropdownOpen
-                            ? AppAssets.dropDownIcon
-                            : AppAssets.dropDownIcon),
-                      ],
-                    ),
-                  ),
+                const Text(
+                  AppStrings.wrtPrompt,
+                  style: AppTextStyles.primaryTxtStyle,
                 ),
+                const SizedBox(height: 10),
+                 CustomTextField(
+                  hintText: AppStrings.clickToUploadImg,
+                  suffixIcon: AppAssets.imageUploadIcon,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if(value == null || value.isEmpty){
+                      return AppStrings.requiredField;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SecondaryBtn(
+                      text: AppStrings.xdl,
+                    ),
+                    const SecondaryBtn(
+                      text: AppStrings.dal,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isDropdownOpen = !_isDropdownOpen;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: AppColors.blueClr, width: 2),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Text(AppStrings.advance,
+                                style: AppTextStyles.ddTxtStyle),
+                            const SizedBox(width: 10),
+                            SvgPicture.asset(_isDropdownOpen
+                                ? AppAssets.dropDownIcon
+                                : AppAssets.dropDownIcon),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                if (_isDropdownOpen)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: 110,
+                        height: 125,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: AppColors.blueClr, width: 2),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            buildLabeledTextField(
+                                AppStrings.imgQuality, AppStrings.enter, 90, 30),
+                            const SizedBox(height: 5),
+                            buildLabeledTextField(
+                                AppStrings.imgResolution, AppStrings.enter, 90, 30),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                 const SizedBox(height: 20,),
+                  PrimaryBtn(
+                    elBtnTxt: AppStrings.generateBtn,
+                    onPressed: () {
+                    if(_formKey.currentState!.validate()){
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageGen2Screen()));
+                    }
+                    },
+                    )
               ],
             ),
-            const SizedBox(height: 10),
-            if (_isDropdownOpen)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: 110, 
-                    height: 125,
-                    padding:
-                        const EdgeInsets.all(8), 
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppColors.blueClr, width: 2),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        buildLabeledTextField(
-                            AppStrings.imgQuality, AppStrings.enter, 90, 30),
-                        const SizedBox(height: 5),
-                        buildLabeledTextField(
-                            AppStrings.imgResolution, AppStrings.enter, 90, 30),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+
+
+
+
 
 
 

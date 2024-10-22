@@ -3,9 +3,8 @@ import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/models/mastermind_model.dart';
-import 'package:clever_creator_ai/views/screens/ielts_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
-import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
+import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class TextGenerationScreen extends StatefulWidget {
@@ -58,21 +57,18 @@ class _TextGenerationScreenState extends State<TextGenerationScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          const  CustomListTile(
+            const CustomDropdownButton(
+              items: ["Item 1"],
               leadingIcon: AppAssets.botIcon,
-              title: AppStrings.myChatBot,
-              trailingIcon: Icons.arrow_forward_ios_outlined,
+              hintText: AppStrings.myChatBot,
             ),
             const SizedBox(
               height: 10,
             ),
-            CustomListTile(
+            const CustomDropdownButton(
+              items: ["Item 2"],
               leadingIcon: AppAssets.ieltsIcon,
-              title: AppStrings.ieltsTest,
-              trailingIcon: Icons.arrow_forward_ios_outlined,
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const IeltsTestScreen()));
-              }, 
+              hintText: AppStrings.ieltsTest,
             ),
             const SizedBox(
               height: 20,

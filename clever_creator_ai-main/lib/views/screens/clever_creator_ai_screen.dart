@@ -86,6 +86,7 @@ class _CleverCreatorAiScreenState extends State<CleverCreatorAiScreen> {
     return Scaffold(
       appBar: const CustomAppBar(
         text: AppStrings.appName,
+        icon: AppAssets.bellIcon,
         style: AppTextStyles.subheadingStyle,
       ),
       body: Padding(

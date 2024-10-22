@@ -1,4 +1,5 @@
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
@@ -36,7 +37,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(onPressed: (){}, icon: SvgPicture.asset(icon)),
-         IconButton(onPressed: (){}, icon: SvgPicture.asset(trailingIcon)),
+         IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen()));
+         }, icon: SvgPicture.asset(trailingIcon)),
       ],
     );
   }

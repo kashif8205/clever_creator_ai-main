@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/stats_subscription_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_form_field.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Padding(
           padding: const EdgeInsets.only(left: 20, top: 20),
           child: RichText(
@@ -101,9 +103,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const CustomFormField(
+               CustomFormField(
                 prefixText: AppStrings.stats$Subscription,
                 keyboardType: TextInputType.visiblePassword,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const StatsSubscriptionScreen()));
+                },
               ),
             ],
           ),
