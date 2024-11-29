@@ -13,7 +13,8 @@ class CustomTextField extends StatelessWidget {
     this.borderSide = BorderSide.none,
     this.borderRadius, 
     this.validator,
-    this.keyboardType
+    this.keyboardType,
+    this.obscureText = false
   });
 
   final String? hintText;
@@ -24,6 +25,7 @@ class CustomTextField extends StatelessWidget {
   final BorderRadius? borderRadius;
   final String? Function(String?)? validator; 
   final TextInputType? keyboardType;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +57,8 @@ class CustomTextField extends StatelessWidget {
       ),
       keyboardType:keyboardType,
       validator: validator,
+      obscureText:obscureText,
+      obscuringCharacter: "*",
     );
   }
 }

@@ -2,7 +2,9 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/views/screens/clever_creator_ai_screen.dart';
 import 'package:clever_creator_ai/views/screens/create_account_screen.dart';
+import 'package:clever_creator_ai/views/screens/forget_password_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
@@ -63,7 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         CustomIconButton(
                           iconButton: AppAssets.google,
-                          onPressed: () {},
+                          onPressed: () {
+                            print("yes");
+                          },
                         ),
                         CustomIconButton(
                           iconButton: AppAssets.facebook,
@@ -110,18 +114,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (value == null || value.isEmpty) {
                         return AppStrings.requiredField;
                       }
-                      if (value.length != 8) {
+                      if (value.length < 8) {
                         return AppStrings.pwdLimit;
                       }
                       return null;
                     },
                     keyboardType: TextInputType.visiblePassword,
+                    obscureText: true,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomTextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>const ForgetPasswordScreen()));
+                        },
                         text: AppStrings.forgetBtnTxt,
                         textStyle: AppTextStyles.forgetBtnTextStyle,
                       ),
@@ -139,9 +146,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const CreateAccountScreen()));
+                                        const CleverCreatorAiScreen()));
                           },
-                          text: AppStrings.singIn),
+                          text: AppStrings.signIn),
                       Container(
                         height: 50,
                         width: 50,

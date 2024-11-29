@@ -109,11 +109,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       if (value == null || value.isEmpty) {
                         return AppStrings.requiredField;
                       }
-                      if (value.length != 8) {
+                      if (value.length < 8) {
                         return AppStrings.pwdLimit;
                       }
                       return null;
                     },
+                    obscureText: true,
                   ),
                   const SizedBox(
                     height: 20,
@@ -127,11 +128,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       if (value == null || value.isEmpty) {
                         return AppStrings.requiredField;
                       }
-                      if (value.length != 8) {
+                      if (value.length < 8) {
                         return AppStrings.pwdLimit;
                       }
                       return null;
                     },
+                    obscureText: true,
                   ),
                   const SizedBox(
                     height: 10,

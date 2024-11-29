@@ -13,7 +13,7 @@ class AppStrings {
   static const String userName = "Username or Email";
   static const String password = "Password";
   static const String forgetBtnTxt = "Forgot Password?";
-  static const String singIn = "Sign In";
+  static const String signIn = "Sign In";
   static const String createAccText = "Create your Account";
   static const String confPwd = "Confirm Password";
   static const String register = "Register";
