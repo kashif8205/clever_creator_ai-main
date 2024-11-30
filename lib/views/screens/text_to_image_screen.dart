@@ -1,9 +1,8 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
-import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
-import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
+import 'package:clever_creator_ai/widgets/custom_field_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -110,62 +109,14 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              Row(
-                children: [
-                  // First container with text field and icon button
-                  Expanded(
-                    child: Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: AppColors.iconTxtClr, // Border color
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              decoration: const InputDecoration(
-                                hintText: AppStrings.askMeAnyThing,
-                                hintStyle: AppTextStyles.textfieldStyle,
-                                border: InputBorder.none, // No border
-                                enabledBorder: InputBorder.none, // No border when enabled
-                                focusedBorder: InputBorder.none, // No border when focused
-                                contentPadding: EdgeInsets.symmetric(horizontal: 15),
-                              ),
-                              style: AppTextStyles.textfieldStyle, // Text style
-                            ),
-                          ),
-                          CustomIconButton(
-                            onPressed: () {
-                              // Add functionality here
-                            },
-                            iconButton: AppAssets.imageUploadIcon,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10), // Add spacing between the containers
-                  // Second container
-                  Container(
-                    height: 56,
-                    width: 56,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: AppColors.blueClr,
-                    ),
-                    child: Center(
-                      child: CustomIconButton(
-                        onPressed: () {
-                          print("hello");
-                        },
-                        iconButton: AppAssets.sendIcon),
-                    ),
-                  ),
-                ],
-              ),
+              CustomFieldAndButton(
+              onPressed: () {
+                print("hello");
+              },
+              onapressing: () {
+                print("hi");
+              },
+            ),
             ],
           ),
         ),
@@ -173,3 +124,4 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
     );
   }
 }
+

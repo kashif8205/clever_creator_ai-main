@@ -4,6 +4,7 @@ import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/views/screens/recent_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
+import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
 import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,11 @@ class _EducationScreenState extends State<EducationScreen> {
                 ),
                 CustomTextField(
                   hintText: AppStrings.writePrompt,
-                  suffixIcon: AppAssets.searchIcon,
+                  suffixIcon: CustomIconButton(
+                    onPressed: () {
+                      print("hello");
+                    },
+                    iconButton: AppAssets.searchIcon), 
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -88,7 +93,11 @@ class _EducationScreenState extends State<EducationScreen> {
                 ),
                  CustomTextField(
                   hintText: AppStrings.writePrompt,
-                  suffixIcon: AppAssets.searchIcon,
+                  suffixIcon: CustomIconButton(
+                  onPressed: () {
+                    print("hi");
+                  },
+                  iconButton: AppAssets.searchIcon),
                   keyboardType: TextInputType.text,
                   validator: (valie) {
                     if(valie == null || valie.isEmpty){

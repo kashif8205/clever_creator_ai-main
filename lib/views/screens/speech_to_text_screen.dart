@@ -1,10 +1,8 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/views/screens/text_to_video_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_voice_container.dart';
-import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -45,12 +43,16 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
               const Text(
                 AppStrings.pressAndHold,
                 style: AppTextStyles.processOfPlantstyle,
-                textAlign: TextAlign.start,
+                textAlign: TextAlign.start
               ),
               const SizedBox(
                 height: 50,
               ),
-             const VoiceRecoderContainer(),
+              VoiceRecoderContainer(
+              onPressed: () {
+                
+              },
+             ),
               const SizedBox(
                 height: 40,
               ),
@@ -105,11 +107,6 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
                 ],
               ),
              const SizedBox(height: 50,),
-             PrimaryBtn(
-              elBtnTxt: AppStrings.next,
-              onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const TextToVideoScreen()));
-                },)
             ],
           ),
         ),

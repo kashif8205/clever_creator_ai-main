@@ -3,7 +3,7 @@ import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   const CustomTextField({
     super.key,
     this.hintText,
@@ -11,21 +11,34 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.textStyle = AppTextStyles.secondaryTxtStyle,
     this.borderSide = BorderSide.none,
-    this.borderRadius, 
+    this.borderRadius,
     this.validator,
     this.keyboardType,
-    this.obscureText = false
+    this.obscureText = false,
   });
 
   final String? hintText;
   final String? prefixIcon;
-  final String? suffixIcon;
+  final Widget? suffixIcon; // Modified to accept a Widget instead of a string
   final TextStyle? textStyle;
   final BorderSide? borderSide;
   final BorderRadius? borderRadius;
-  final String? Function(String?)? validator; 
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool obscureText;
+
+  @override
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _isObscure;
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscure = widget.obscureText; // Initialize with the provided obscureText value
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,31 +46,43 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIconConstraints: const BoxConstraints(minHeight: 20, minWidth: 20),
         suffixIconConstraints: const BoxConstraints(minHeight: 20, minWidth: 20),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: prefixIcon != null 
-              ? SvgPicture.asset(prefixIcon!) 
-              : null,
-        ),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: suffixIcon != null 
-              ? SvgPicture.asset(suffixIcon!) 
-              : null,
-        ),
-        hintText: hintText,
-        hintStyle: textStyle,
+        prefixIcon: widget.prefixIcon != null
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: SvgPicture.asset(widget.prefixIcon!),
+              )
+            : null,
+        suffixIcon: widget.obscureText
+            ? IconButton(
+                icon: Icon(
+                  _isObscure ? Icons.visibility_off : Icons.visibility,
+                  color: AppColors.iconTxtClr,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure; // Toggle visibility
+                  });
+                },
+              )
+            : widget.suffixIcon != null
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: widget.suffixIcon, // Directly use the Widget for suffixIcon
+                  )
+                : null,
+        hintText: widget.hintText,
+        hintStyle: widget.textStyle,
         fillColor: AppColors.textfieldClr,
         filled: true,
         border: OutlineInputBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(10),
-          borderSide: borderSide ?? BorderSide.none,
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
+          borderSide: widget.borderSide ?? BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
       ),
-      keyboardType:keyboardType,
-      validator: validator,
-      obscureText:obscureText,
+      keyboardType: widget.keyboardType,
+      validator: widget.validator,
+      obscureText: widget.obscureText ? _isObscure : false, // Toggle visibility if obscureText is true
       obscuringCharacter: "*",
     );
   }

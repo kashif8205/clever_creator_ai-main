@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 class AppAssets {
   static const String aiLogo = 'assets/images/ai.png';
   static const String aestronaut = 'assets/images/aestronaut.png';

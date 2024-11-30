@@ -1,7 +1,5 @@
-import 'package:clever_creator_ai/views/screens/science_tutor_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_list_tile.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
-import 'package:clever_creator_ai/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
@@ -367,11 +365,6 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
             const SizedBox(
               height: 200,
             ),
-             PrimaryBtn(
-              elBtnTxt: AppStrings.next,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ScienceTutorScreen()));
-              },)
           ],
         ),
       ),

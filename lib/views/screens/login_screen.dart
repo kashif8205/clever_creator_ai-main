@@ -23,21 +23,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: CustomIconButton(
-          iconButton: AppAssets.bwdicon,
-          onPressed: () {
-            Navigator.of(context).maybePop();
-          },
-        ),
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction, 
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,16 +58,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         CustomIconButton(
                           iconButton: AppAssets.google,
                           onPressed: () {
-                            print("yes");
+                            print("Google button pressed");
                           },
                         ),
                         CustomIconButton(
                           iconButton: AppAssets.facebook,
-                          onPressed: () {},
+                          onPressed: () {
+                            print("Facebook button pressed");
+                          },
                         ),
                         CustomIconButton(
                           iconButton: AppAssets.apple,
-                          onPressed: () {},
+                          onPressed: () {
+                            print("Apple button pressed");
+                          },
                         ),
                       ],
                     ),
@@ -109,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.lock,
                     hintText: AppStrings.password,
-                    suffixIcon: AppAssets.eye,
+                    suffixIcon: const CustomIconButton(iconButton: AppAssets.eye),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return AppStrings.requiredField;
@@ -127,7 +123,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       CustomTextButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) =>const ForgetPasswordScreen()));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ForgetPasswordScreen(),
+                            ),
+                          );
                         },
                         text: AppStrings.forgetBtnTxt,
                         textStyle: AppTextStyles.forgetBtnTextStyle,
@@ -141,14 +142,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomTextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CleverCreatorAiScreen()));
-                          },
-                          text: AppStrings.signIn),
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CleverCreatorAiScreen(),
+                            ),
+                            (route) => false, 
+                          );
+                        },
+                        text: AppStrings.signIn,
+                      ),
                       Container(
                         height: 50,
                         width: 50,
@@ -161,16 +165,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const CreateAccountScreen()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CreateAccountScreen(),
+                                ),
+                               
+                              );
                             }
                           },
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

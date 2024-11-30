@@ -103,7 +103,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.lock,
                     hintText: AppStrings.password,
-                    suffixIcon: AppAssets.eye,
+                    suffixIcon:const CustomIconButton(iconButton: AppAssets.eye),
                     keyboardType: TextInputType.visiblePassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -122,7 +122,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.lock,
                     hintText: AppStrings.confPwd,
-                    suffixIcon: AppAssets.eye,
+                    // suffixIcon: AppAssets.eye,
                     keyboardType: TextInputType.visiblePassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {

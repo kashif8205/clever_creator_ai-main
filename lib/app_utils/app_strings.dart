@@ -202,7 +202,7 @@ class AppStrings {
   static const String imgQuality = "Image Quality";
   static const String enter  = "Enter";
   static const String imgResolution = "Image Resolution";
-  static const String xdl = "XDL";
+  static const String  xdl = "XDL";
   static const String dal = "Dall-E  3";
   static const String requiredField = "This field is required.";
   static const String pwdLimit = "Password must be exactly 8 characters long";
