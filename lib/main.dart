@@ -1,4 +1,4 @@
-import 'package:clever_creator_ai/views/screens/ai_tutor_screen.dart';
+import 'package:clever_creator_ai/views/screens/forget_password_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return MaterialApp(
         title: 'Clever Creater Ai',
          
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'PlusJakartaSans'
         ),
-        debugShowCheckedModeBanner: false,
-        home:const AiTutorScreen());
+        debugShowCheckedModeBanner: false, 
+        home:const ForgetPasswordScreen());
   }
 }
- 
+

@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/file_handler.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
@@ -14,6 +16,8 @@ class TextToImageScreen extends StatefulWidget {
 }
 
 class _TextToImageScreenState extends State<TextToImageScreen> {
+  File? _selectedImage;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +79,10 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
                 style: AppTextStyles.imgLableTxtStyle,
               ),
               const SizedBox(height: 10),
-              Image.asset(AppAssets.babyImg),
+              _selectedImage != null
+                  ? Image.file(_selectedImage!)
+                  : Image.asset(AppAssets.babyImg),
+              const SizedBox(height: 10),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,13 +117,16 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
               ),
               const SizedBox(height: 10),
               CustomFieldAndButton(
-              onPressed: () {
-                print("hello");
-              },
-              onapressing: () {
-                print("hi");
-              },
-            ),
+                onPressed: () {
+                  ImagePickerBottomSheet.showImageSourceBottomSheet(context,
+                      (pickedImage) {
+                    setState(() {
+                      _selectedImage = pickedImage;
+                    });
+                  });
+                },
+                onPressing: () {},
+              ),
             ],
           ),
         ),
@@ -124,4 +134,3 @@ class _TextToImageScreenState extends State<TextToImageScreen> {
     );
   }
 }
-

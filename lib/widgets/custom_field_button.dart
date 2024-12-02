@@ -10,11 +10,11 @@ class CustomFieldAndButton extends StatelessWidget {
       {super.key, 
       this.icon = AppAssets.imageUploadIcon, 
       this.onPressed,
-      this.onapressing
+      this.onPressing
       });
   final String icon;
   final VoidCallback? onPressed;
-  final VoidCallback? onapressing;
+  final VoidCallback? onPressing;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -64,7 +64,7 @@ class CustomFieldAndButton extends StatelessWidget {
           ),
           child: Center(
             child: CustomIconButton(
-                onPressed:onapressing , 
+                onPressed:onPressing , 
                 iconButton: AppAssets.sendIcon),
           ),
         ),

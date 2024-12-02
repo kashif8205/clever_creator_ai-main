@@ -60,7 +60,7 @@ class _VoiceRecScreenState extends State<VoiceRecScreen> {
               VoiceRecoderContainer(
                 onPressed: () {
                   print("Its working");
-                },
+                }, 
               ),
             ],
           ),

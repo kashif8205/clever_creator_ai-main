@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/doc_picker.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
@@ -14,6 +15,7 @@ class ScienceTutorScreen extends StatefulWidget {
 }
 
 class _ScienceTutorScreenState extends State<ScienceTutorScreen> {
+  String ? _documentPicker;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,10 +124,18 @@ class _ScienceTutorScreenState extends State<ScienceTutorScreen> {
                 thickness: 1,
               ),
               const SizedBox(
-                height: 30,
+                height: 140,
               ),
-            const CustomFieldAndButton(
+             CustomFieldAndButton(
               icon: AppAssets.documentIcon,
+              onPressed: () {
+                DocumentPickerBottomSheet.showDocumentUploadBottomSheet(context, 
+                (onDocumentPicked){
+                  setState(() {
+                    _documentPicker = onDocumentPicked;
+                  });
+                });
+              },
             )
             ],
           ),

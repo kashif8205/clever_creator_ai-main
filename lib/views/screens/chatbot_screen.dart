@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/doc_picker.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
@@ -14,6 +15,7 @@ class ChatbotScreen extends StatefulWidget {
 }
 
 class _ChatbotScreenState extends State<ChatbotScreen> {
+  String? _uploadedDocumentPath;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +123,21 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               const SizedBox(
                 height: 30,
               ),
-            const  CustomFieldAndButton()
+              CustomFieldAndButton(
+              icon: AppAssets.documentIcon,
+              onPressed: () {
+                DocumentPickerBottomSheet.showDocumentUploadBottomSheet(
+                  context,
+                  (pickedDocument) {
+                    if (pickedDocument != null) {
+                      setState(() {
+                        _uploadedDocumentPath = pickedDocument; 
+                      });
+                    }
+                  },
+                );
+              },
+            )
             ],
           ),
         ),

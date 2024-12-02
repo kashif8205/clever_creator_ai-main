@@ -209,6 +209,10 @@ class AppStrings {
   static const String next = "Next";
   static const String yourPrompt = "Your Prompt";
   static const String addCustom = "Add Custom";
-  
+  static const String gallary = "Gallary";
+  static const String camera = "Camera";
+  static const String plzEnterEmail = "Please enter an email address.";
+  static const String plzEnterPswd = "Please enter password";
+  static const String enterValPswd = "Please enter a valid password";
 
 }

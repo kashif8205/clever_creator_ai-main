@@ -1,4 +1,5 @@
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
+import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,6 +34,21 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late bool _isObscure;
+  
+   String? validatePassword(String? value) {
+    RegExp regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    if (value!.isEmpty) {
+      return AppStrings.plzEnterPswd;
+    } else {
+      if (!regex.hasMatch(value)) {
+        return AppStrings.enterValPswd;
+      } else {
+        return null;
+      }
+    }
+  }
+
 
   @override
   void initState() {
@@ -79,6 +95,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderSide: widget.borderSide ?? BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+        
       ),
       keyboardType: widget.keyboardType,
       validator: widget.validator,
