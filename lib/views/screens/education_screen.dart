@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/recent_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
@@ -53,20 +54,14 @@ class _EducationScreenState extends State<EducationScreen> {
                   height: 10,
                 ),
                 CustomTextField(
-                  hintText: AppStrings.writePrompt,
-                  suffixIcon: CustomIconButton(
-                    onPressed: () {
-                      print("hello");
-                    },
-                    iconButton: AppAssets.searchIcon), 
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                    hintText: AppStrings.writePrompt,
+                    suffixIcon: CustomIconButton(
+                        onPressed: () {
+                          print("hello");
+                        },
+                        iconButton: AppAssets.searchIcon),
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 40,
                 ),
@@ -91,29 +86,29 @@ class _EducationScreenState extends State<EducationScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                 CustomTextField(
-                  hintText: AppStrings.writePrompt,
-                  suffixIcon: CustomIconButton(
-                  onPressed: () {
-                    print("hi");
-                  },
-                  iconButton: AppAssets.searchIcon),
-                  keyboardType: TextInputType.text,
-                  validator: (valie) {
-                    if(valie == null || valie.isEmpty){
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
+                CustomTextField(
+                    hintText: AppStrings.writePrompt,
+                    suffixIcon: CustomIconButton(
+                        onPressed: () {
+                          print("hi");
+                        },
+                        iconButton: AppAssets.searchIcon),
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
+                const SizedBox(
+                  height: 40,
                 ),
-                const SizedBox(height: 40,),
                 PrimaryBtn(
                   elBtnTxt: AppStrings.next,
                   onPressed: () {
-                    if(_formKey.currentState!.validate()){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const RecentScreen()));
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RecentScreen()));
                     }
-                  },)
+                  },
+                )
               ],
             ),
           ),

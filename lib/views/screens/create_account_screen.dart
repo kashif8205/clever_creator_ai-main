@@ -4,7 +4,6 @@ import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/forget_password_screen.dart';
-import 'package:clever_creator_ai/views/screens/login_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
@@ -91,7 +90,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.user,
                     hintText: AppStrings.userName,
-                    validator: formValidation.validateEmail,
+                    validator: FormValidation().validateEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(

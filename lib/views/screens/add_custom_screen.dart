@@ -1,5 +1,6 @@
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/manage_templates_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
@@ -36,27 +37,15 @@ class _AddCustomScreenState extends State<AddCustomScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.category,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.category,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.enterIcon,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.enterIcon,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
@@ -68,15 +57,9 @@ class _AddCustomScreenState extends State<AddCustomScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.description,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.description,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 20,
                 ),
@@ -95,27 +78,15 @@ class _AddCustomScreenState extends State<AddCustomScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.inputName,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.inputName,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.inputLabel,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.inputLabel,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 20,
                 ),
@@ -126,15 +97,9 @@ class _AddCustomScreenState extends State<AddCustomScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.enterMsg,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.enterMsg,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 50,
                 ),

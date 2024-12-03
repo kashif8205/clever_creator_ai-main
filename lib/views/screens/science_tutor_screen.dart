@@ -15,7 +15,6 @@ class ScienceTutorScreen extends StatefulWidget {
 }
 
 class _ScienceTutorScreenState extends State<ScienceTutorScreen> {
-  String ? _documentPicker;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +131,7 @@ class _ScienceTutorScreenState extends State<ScienceTutorScreen> {
                 DocumentPickerBottomSheet.showDocumentUploadBottomSheet(context, 
                 (onDocumentPicked){
                   setState(() {
-                    _documentPicker = onDocumentPicked;
+                    onDocumentPicked = onDocumentPicked;
                   });
                 });
               },

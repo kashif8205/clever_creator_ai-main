@@ -1,5 +1,6 @@
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/add_custom_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/primary_button.dart';
@@ -34,29 +35,17 @@ class _CustomCategoriesScreenState extends State<CustomCategoriesScreen> {
               const SizedBox(
                 height: 5,
               ),
-              CustomTextField(
-                hintText: AppStrings.category,
-                keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppStrings.requiredField;
-                  }
-                  return null;
-                },
-              ),
+              const CustomTextField(
+                  hintText: AppStrings.category,
+                  keyboardType: TextInputType.text,
+                  validator: FormValidation.validateField),
               const SizedBox(
                 height: 20,
               ),
-              CustomTextField(
-                hintText: AppStrings.enterIcon,
-                keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppStrings.requiredField;
-                  }
-                  return null;
-                },
-              ),
+              const CustomTextField(
+                  hintText: AppStrings.enterIcon,
+                  keyboardType: TextInputType.text,
+                  validator: FormValidation.validateField),
               const SizedBox(
                 height: 50,
               ),
@@ -67,8 +56,7 @@ class _CustomCategoriesScreenState extends State<CustomCategoriesScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const AddCustomScreen()));
+                            builder: (context) => const AddCustomScreen()));
                   }
                 },
               ),

@@ -2,8 +2,8 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/clever_creator_ai_screen.dart';
-import 'package:clever_creator_ai/views/screens/login_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
@@ -49,7 +49,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.mailbox,
                     hintText: AppStrings.enterEmail,
-                    validator: formValidation.validateEmail,
+                    validator: FormValidation().validateEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(

@@ -11,7 +11,7 @@ import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
 import 'package:clever_creator_ai/widgets/custom_txt_btn.dart';
 import 'package:flutter/material.dart';
 
-FormValidation formValidation = FormValidation();
+// FormValidation formValidation = FormValidation();
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,9 +22,14 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController uNameController = TextEditingController();
+    TextEditingController pwdController = TextEditingController();
+
+  
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -94,19 +99,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextField(
                     prefixIcon: AppAssets.user,
                     hintText: AppStrings.userName,
-                    validator: formValidation.validateEmail,
+                    validator: FormValidation().validateEmail,
                     keyboardType: TextInputType.emailAddress,
+                    controller: uNameController,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const CustomTextField(
+                   CustomTextField(
                     prefixIcon: AppAssets.lock,
                     hintText: AppStrings.password,
-                    suffixIcon: CustomIconButton(iconButton: AppAssets.eye),
+                    // suffixIcon: CustomIconButton(iconButton: AppAssets.eye),
                     validator: FormValidation.validatePassword,
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
+                    controller: pwdController
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -158,6 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           iconButton: AppAssets.arrow,
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
+                              // LoginProvider().login(uNameController.text, pwdController.text);
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
@@ -180,4 +188,5 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
 }

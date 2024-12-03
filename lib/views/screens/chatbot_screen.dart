@@ -15,7 +15,6 @@ class ChatbotScreen extends StatefulWidget {
 }
 
 class _ChatbotScreenState extends State<ChatbotScreen> {
-  String? _uploadedDocumentPath;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,7 +130,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   (pickedDocument) {
                     if (pickedDocument != null) {
                       setState(() {
-                        _uploadedDocumentPath = pickedDocument; 
+                        pickedDocument = pickedDocument; 
                       });
                     }
                   },

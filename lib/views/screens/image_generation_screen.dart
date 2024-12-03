@@ -2,6 +2,8 @@ import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/file_handler.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/image_gen2_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field.dart';
@@ -21,7 +23,6 @@ class ImageGenerationScreen extends StatefulWidget {
 class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isDropdownOpen = false;
-  // bool _istapped = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,17 +41,21 @@ class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
                   style: AppTextStyles.primaryTxtStyle,
                 ),
                 const SizedBox(height: 10),
-                 CustomTextField(
-                  hintText: AppStrings.clickToUploadImg,
-                  suffixIcon: const CustomIconButton(iconButton: AppAssets.imageUploadIcon),
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if(value == null || value.isEmpty){
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                CustomTextField(
+                    hintText: AppStrings.clickToUploadImg,
+                    suffixIcon: CustomIconButton(
+                      iconButton: AppAssets.imageUploadIcon,
+                      onPressed: () {
+                        ImagePickerBottomSheet.showImageSourceBottomSheet(
+                            context, (pickedImage) {
+                          setState(() {
+                            pickedImage = pickedImage;
+                          });
+                        });
+                      },
+                    ),
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,12 +73,13 @@ class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 8),
                         decoration: BoxDecoration(
                           color: Colors.black,
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: AppColors.blueClr, width: 2),
+                          border:
+                              Border.all(color: AppColors.blueClr, width: 2),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -102,30 +108,36 @@ class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: AppColors.blueClr, width: 2),
+                          border:
+                              Border.all(color: AppColors.blueClr, width: 2),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            buildLabeledTextField(
-                                AppStrings.imgQuality, AppStrings.enter, 90, 30),
+                            buildLabeledTextField(AppStrings.imgQuality,
+                                AppStrings.enter, 90, 30),
                             const SizedBox(height: 5),
-                            buildLabeledTextField(
-                                AppStrings.imgResolution, AppStrings.enter, 90, 30),
+                            buildLabeledTextField(AppStrings.imgResolution,
+                                AppStrings.enter, 90, 30),
                           ],
                         ),
                       ),
                     ],
                   ),
-                 const SizedBox(height: 20,),
-                  PrimaryBtn(
-                    elBtnTxt: AppStrings.generateBtn,
-                    onPressed: () {
-                    if(_formKey.currentState!.validate()){
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageGen2Screen()));
+                const SizedBox(
+                  height: 20,
+                ),
+                PrimaryBtn(
+                  elBtnTxt: AppStrings.generateBtn,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ImageGen2Screen()));
                     }
-                    },
-                    )
+                  },
+                )
               ],
             ),
           ),
@@ -134,14 +146,6 @@ class _ImageGenerationScreenState extends State<ImageGenerationScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
 
 Widget buildLabeledTextField(
     String label, String hintText, double width, double height) {

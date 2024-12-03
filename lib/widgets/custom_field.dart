@@ -1,5 +1,4 @@
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
-import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,46 +15,27 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.obscureText = false,
+    this.controller
   });
 
   final String? hintText;
   final String? prefixIcon;
-  final Widget? suffixIcon; // Modified to accept a Widget instead of a string
+  final Widget? suffixIcon; 
   final TextStyle? textStyle;
   final BorderSide? borderSide;
   final BorderRadius? borderRadius;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool obscureText;
+  final TextEditingController? controller;
 
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  late bool _isObscure;
-  
-   String? validatePassword(String? value) {
-    RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    if (value!.isEmpty) {
-      return AppStrings.plzEnterPswd;
-    } else {
-      if (!regex.hasMatch(value)) {
-        return AppStrings.enterValPswd;
-      } else {
-        return null;
-      }
-    }
-  }
-
-
-  @override
-  void initState() {
-    super.initState();
-    _isObscure = widget.obscureText; // Initialize with the provided obscureText value
-  }
-
+   bool _isObscure= false;
+   
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -99,8 +79,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
       keyboardType: widget.keyboardType,
       validator: widget.validator,
-      obscureText: widget.obscureText ? _isObscure : false, // Toggle visibility if obscureText is true
+      obscureText: _isObscure , // Toggle visibility if obscureText is true
       obscuringCharacter: "*",
+      controller: widget.controller,
     );
   }
 }

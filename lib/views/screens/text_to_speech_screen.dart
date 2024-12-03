@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
@@ -17,7 +15,6 @@ class TextToSpeechScreen extends StatefulWidget {
 }
 
 class _TextToSpeechScreenState extends State<TextToSpeechScreen> {
-  File ? _selectedImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +119,7 @@ class _TextToSpeechScreenState extends State<TextToSpeechScreen> {
               onPressed: () {
                 ImagePickerBottomSheet.showImageSourceBottomSheet(context, (pickedImage){
                   setState(() {
-                    _selectedImage = pickedImage;
+                    pickedImage = pickedImage;
                   });
                 });
               },

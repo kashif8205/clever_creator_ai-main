@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/img_prompt2.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_drop_down.dart';
@@ -40,9 +41,10 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                   height: 5,
                 ),
                 const CustomDropdownButton(
-                    items: ["item 1", "Item 2"],
-                    hintText: AppStrings.selectModel,
-                    textStyle: AppTextStyles.secondaryTxtStyle,),
+                  items: ["item 1", "Item 2"],
+                  hintText: AppStrings.selectModel,
+                  textStyle: AppTextStyles.secondaryTxtStyle,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -54,9 +56,10 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                   height: 5,
                 ),
                 const CustomDropdownButton(
-                    items: ["item 1", "Item 2"],
-                    hintText: AppStrings.english,
-                    textStyle: AppTextStyles.secondaryTxtStyle,),
+                  items: ["item 1", "Item 2"],
+                  hintText: AppStrings.english,
+                  textStyle: AppTextStyles.secondaryTxtStyle,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -67,16 +70,10 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.desOfImgTypeYouWant,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.desOfImgTypeYouWant,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
@@ -87,16 +84,10 @@ class _ImagePromptGenScreenState extends State<ImagePromptGenScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.hintTxtOfdesOfImg,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.hintTxtOfdesOfImg,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 50,
                 ),

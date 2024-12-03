@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,6 +9,7 @@ class ImagePickerBottomSheet {
   static Future<void>  showImageSourceBottomSheet(
       BuildContext context, Function(File?) onImagePicked) {
     return showModalBottomSheet(
+      backgroundColor: AppColors.blueClr,
       context: context,
       builder: (context) {
         return Padding(

@@ -1,6 +1,7 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
+import 'package:clever_creator_ai/app_utils/form_validation.dart';
 import 'package:clever_creator_ai/views/screens/chatbot_screen.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_icon_button.dart';
@@ -38,29 +39,28 @@ class _ManageTemplatesScreenState extends State<ManageTemplatesScreen> {
                   height: 10,
                 ),
                 CustomTextField(
-                  hintText: AppStrings.searchOrderId,
-                  suffixIcon: CustomIconButton(
-                    onPressed: () {
-                      print("hello");
-                    },
-                    iconButton: AppAssets.searchIcon),
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                    hintText: AppStrings.searchOrderId,
+                    suffixIcon: CustomIconButton(
+                        onPressed: () {
+                          print("hello");
+                        },
+                        iconButton: AppAssets.searchIcon),
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 30,
                 ),
-                 PrimaryBtn(elBtnTxt: AppStrings.search,
-                onPressed: () {
-                  if(_formKey.currentState!.validate()){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatbotScreen()));
-                  }
-                },),
+                PrimaryBtn(
+                  elBtnTxt: AppStrings.search,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ChatbotScreen()));
+                    }
+                  },
+                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -71,55 +71,31 @@ class _ManageTemplatesScreenState extends State<ManageTemplatesScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.template,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField; 
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.template,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.cleverCreater,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.cleverCreater,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.cleverAiImage,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.cleverAiImage,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  hintText: AppStrings.createrAiContentFree,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
-                ),
+                const CustomTextField(
+                    hintText: AppStrings.createrAiContentFree,
+                    keyboardType: TextInputType.text,
+                    validator: FormValidation.validateField),
               ],
             ),
           ),
@@ -128,3 +104,4 @@ class _ManageTemplatesScreenState extends State<ManageTemplatesScreen> {
     );
   }
 }
+ 
