@@ -1,13 +1,14 @@
 
-import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class VoiceRecoderContainer extends StatelessWidget {
   const VoiceRecoderContainer({
-    super.key, this.iconButton, this.onPressed 
+    super.key,
+     this.icon,
+      this.onPressed 
   });
-final String? iconButton;
+final Widget? icon;
 final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ final VoidCallback? onPressed;
       child: Center(
         child: IconButton(
           onPressed: onPressed, 
-          icon: Image.asset(AppAssets.voiceIcon))
+          icon: icon ?? const Icon(Icons.mic))
       ),
     );
   }

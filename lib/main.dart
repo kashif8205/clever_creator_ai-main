@@ -1,4 +1,4 @@
-import 'package:clever_creator_ai/views/screens/text_to_image_screen.dart';
+import 'package:clever_creator_ai/views/screens/voice_rec_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'PlusJakartaSans' 
         ),
         debugShowCheckedModeBanner: false, 
-        home:const TextToImageScreen());
+        home: VoiceRecScreen());
   }
 }
 
