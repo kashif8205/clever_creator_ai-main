@@ -32,7 +32,7 @@ class CustomFieldAndButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Row(
                 children: [
-                  Expanded(
+                  Expanded( 
                     child: TextFormField(
                       decoration: const InputDecoration(
                         hintText: AppStrings.askMeAnyThing,

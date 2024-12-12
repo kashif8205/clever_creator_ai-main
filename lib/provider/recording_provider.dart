@@ -10,12 +10,7 @@ class VoiceRecorderProvider extends ChangeNotifier {
   final AudioRecorder audioRecorder = AudioRecorder();
   final AudioPlayer audioPlayer = AudioPlayer();
 
-//  int counter = 0;
-//  void increment(){
-//   counter++;
-//   print(counter);
-//   notifyListeners();
-//  }
+
   bool isRecording = false;
   bool isPlaying = false;
   String? recordingPath;

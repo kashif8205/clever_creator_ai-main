@@ -1,4 +1,6 @@
+import 'package:clever_creator_ai/provider/doc_picker_provider.dart';
 import 'package:clever_creator_ai/provider/recording_provider.dart';
+import 'package:clever_creator_ai/views/screens/text_to_image_screen.dart';
 import 'package:clever_creator_ai/views/screens/voice_rec_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<VoiceRecorderProvider>(create: (context) => VoiceRecorderProvider())
+        ChangeNotifierProvider<VoiceRecorderProvider>(create: (context) => VoiceRecorderProvider()),
+        ChangeNotifierProvider<DocumentPickerProvider>(create: (context)=> DocumentPickerProvider()),
       ],
       child: MaterialApp(
           title: 'Clever Creater Ai',
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'PlusJakartaSans' 
           ),
           debugShowCheckedModeBanner: false, 
-          home: VoiceRecScreen()),
+          home:  const VoiceRecScreen()),
     );
   }
 }

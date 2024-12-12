@@ -1,20 +1,16 @@
 import 'package:clever_creator_ai/app_utils/app_assets.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
-import 'package:clever_creator_ai/app_utils/doc_picker.dart';
+import 'package:clever_creator_ai/provider/doc_picker_provider.dart';
 import 'package:clever_creator_ai/widgets/custom_app_bar.dart';
 import 'package:clever_creator_ai/widgets/custom_field_button.dart';
 import 'package:clever_creator_ai/widgets/row_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ChatbotScreen extends StatefulWidget {
+class ChatbotScreen extends StatelessWidget {
   const ChatbotScreen({super.key});
 
-  @override
-  State<ChatbotScreen> createState() => _ChatbotScreenState();
-}
-
-class _ChatbotScreenState extends State<ChatbotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,16 +72,19 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   const SizedBox(
                     width: 10,
                   ),
-               const Text(AppStrings.chatBot,
-                style: AppTextStyles.imgLableTxtStyle,)
+                  const Text(
+                    AppStrings.chatBot,
+                    style: AppTextStyles.imgLableTxtStyle,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
-             const Text(AppStrings.chatBotScreenDescription,
-             style: AppTextStyles.imgLableTxtStyle,
-             ),
+              const Text(
+                AppStrings.chatBotScreenDescription,
+                style: AppTextStyles.imgLableTxtStyle,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -122,21 +121,26 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               const SizedBox(
                 height: 30,
               ),
-              CustomFieldAndButton(
-              icon: AppAssets.documentIcon,
-              onPressed: () {
-                DocumentPickerBottomSheet.showDocumentUploadBottomSheet(
-                  context,
-                  (pickedDocument) {
-                    if (pickedDocument != null) {
-                      setState(() {
-                        pickedDocument = pickedDocument; 
-                      });
-                    }
-                  },
-                );
-              },
-            )
+              Consumer<DocumentPickerProvider>(
+                builder: (context, provider, child) {
+                  return Column(
+                    children: [
+                      CustomFieldAndButton(
+                        icon: AppAssets.documentIcon,
+                        onPressed: () {
+                          provider.pickDocument(context); // Trigger the provider
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      if (provider.pickedDocumentPath != null)
+                        Text(
+                          'Picked Document: ${provider.pickedDocumentPath}',
+                          style: AppTextStyles.imgLableTxtStyle,
+                        ),
+                    ],
+                  );
+                },
+              ),
             ],
           ),
         ),

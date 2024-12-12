@@ -158,7 +158,7 @@ class VoiceRecScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("build");
-    final vProvider = Provider.of<VoiceRecorderProvider>(context, listen: false);
+    // final vProvider = Provider.of<VoiceRecorderProvider>(context, listen: false);
     return Scaffold(
       appBar: const CustomAppBar(
         text: AppStrings.voiceRec,
@@ -189,20 +189,6 @@ class VoiceRecScreen extends StatelessWidget {
                   );
                 },
               ),
-              // understanding the provider
-              // Consumer<VoiceRecorderProvider>(
-              //   builder: (context, value, child) => 
-              //    IconButton(onPressed: (){
-              //     value.increment();
-              //   },
-              //    icon:Column(
-              //     children: [
-              //       Text(value.counter.toString()),
-              //       const Icon(Icons.add)
-              //     ],
-              //    )
-              //    ),
-              // ),
               const SizedBox(height: 120),
               const Text(
                 AppStrings.voiceRecord,

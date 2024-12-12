@@ -3,6 +3,7 @@ import 'package:clever_creator_ai/app_utils/app_colors.dart';
 import 'package:clever_creator_ai/app_utils/app_strings.dart';
 import 'package:clever_creator_ai/app_utils/app_text_styles.dart';
 import 'package:clever_creator_ai/app_utils/form_validation.dart';
+import 'package:clever_creator_ai/provider/login_provider.dart';
 import 'package:clever_creator_ai/views/screens/clever_creator_ai_screen.dart';
 import 'package:clever_creator_ai/views/screens/create_account_screen.dart';
 import 'package:clever_creator_ai/views/screens/forget_password_screen.dart';
@@ -165,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           iconButton: AppAssets.arrow,
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // LoginProvider().login(uNameController.text, pwdController.text);
+                              LoginProvider().login(uNameController.text, pwdController.text);
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
